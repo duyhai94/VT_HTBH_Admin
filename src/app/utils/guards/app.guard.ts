@@ -17,10 +17,10 @@ export class AppGuard implements CanLoad, CanActivate {
   }
   canActivate(): boolean | Observable<boolean> | Promise<boolean> {
     if (this.localStorageService.get('access_token')) {
-      return true;
-    } else {
-      // this.router.navigate(['employee']);
       return false;
+    } else {
+      this.router.navigate(['employee']);
+      return true;
     }
   }
 }

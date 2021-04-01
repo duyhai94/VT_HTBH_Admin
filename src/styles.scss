@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "San-Francisco";
+    src: url("./assets/font/FontsFree-Net-SFProDisplay-Regular.ttf");
+}
+
+body {
+    font-family: "San-Francisco";
+}
+
+@import './themes/root-color.scss';
+@import './themes/global-class.scss';

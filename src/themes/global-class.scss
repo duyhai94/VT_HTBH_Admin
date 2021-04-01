@@ -1,0 +1,38 @@
+.base-card {
+    background-color: rgb(122, 174, 219);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid rebeccapurple;
+}
+
+.text-card-header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--color-text-header);
+}
+
+.text-card-label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--color-text-header);
+}
+
+.text-card-content {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--color-text-header);
+}
+
+.text-card-status {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: var( --color-warning);
+}

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CardComponentModule } from 'src/app/components/card/card-component.module';
 import { LayoutModule } from 'src/app/components/layout/layout.module';
 import { ContractComponent } from './contract/contract.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -15,7 +16,12 @@ import { SettingComponent } from './setting/setting.component';
     ContractComponent,
     SettingComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(mainRoutes), LayoutModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(mainRoutes),
+    LayoutModule,
+    CardComponentModule,
+  ],
   providers: [],
 })
 export class MainModule {}
