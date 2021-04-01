@@ -69,3 +69,12 @@
         line-height: 21px;
     }
 }
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 235px;
+    .header-logo-btn {}
+    .header-logo-logo {}
+}
