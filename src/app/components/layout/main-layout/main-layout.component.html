@@ -1,4 +1,12 @@
-<p>main-layout works!</p>
-<ng-content></ng-content>
-<!-- Content projection -->
-<!-- dùng bắn (inject) pages route vào -->
+<div class="main-layout">
+    <div class="main-layout-header"></div>
+    <div class="main-layout-body">
+        <div class="main-layout-nav"></div>
+        <div class="main-layout-section">
+
+            <ng-content>
+            </ng-content>
+        </div>
+    </div>
+
+</div>

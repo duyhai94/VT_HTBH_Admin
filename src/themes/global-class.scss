@@ -1,3 +1,11 @@
+//========table of contents======
+
+/*
+  1. card
+  2. header
+*/
+
+//1.========== card==========
 .base-card {
     background-color: rgb(122, 174, 219);
     border-radius: 10px;
@@ -35,4 +43,29 @@
     font-size: 16px;
     line-height: 20px;
     color: var( --color-warning);
+}
+
+//2.============= header=========
+.header-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header-info-avt {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #EEB7AD;
+    }
+    .header-info-name {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .header-info-btn {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+    }
 }
