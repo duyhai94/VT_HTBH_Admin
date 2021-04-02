@@ -12,9 +12,11 @@ export class AppGuard implements CanLoad, CanActivate {
     private localStorageService: LocalStorageService,
     public router: Router
   ) {}
+
   canLoad(): boolean | Observable<boolean> | Promise<boolean> {
     return;
   }
+
   canActivate(): boolean | Observable<boolean> | Promise<boolean> {
     if (this.localStorageService.get('access_token')) {
       return false;

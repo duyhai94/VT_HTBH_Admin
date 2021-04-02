@@ -11,15 +11,15 @@ export class MainLayoutComponent implements OnInit {
    
     list: [
       {
-        icon: '',
+        icon: 'assets/img/nav/ic-account.svg',
         name: 'Danh sách nhân viên bán hàng',
       },
       {
-        icon: '',
+        icon: 'assets/img/nav/analystics.svg',
         name: 'Danh sách hợp đồng',
       },
       {
-        icon: '',
+        icon: 'assets/img/nav/recommendation.svg',
         name: 'Cấu hình hoa hồng',
       }
     ],

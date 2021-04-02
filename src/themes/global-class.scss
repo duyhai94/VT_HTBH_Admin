@@ -88,13 +88,37 @@
 
 //============nav============
 .nav-menu {
-    width: 100%;
-    .nav-menu-icon {}
+    display: flex;
+    align-items: center;
+    margin: 16px;
+    padding: 14px;
+    border-radius: 10px;
+    .nav-menu-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+    }
     .nav-menu-list {
         font-style: normal;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 16px;
         line-height: 20px;
         color: var(--color-list-nav);
+        word-break: keep-all;
+        max-width: 150px;
+    }
+}
+
+.nav-menu-active {
+    background: #0A2956;
+}
+
+.nav-menu-list-active {
+    color: #ffffff !important;
+}
+
+.nav-menu-icon-active {
+    img {
+        filter: invert(15%) sepia(94%) saturate(6481%) hue-rotate(342deg) brightness(97%) contrast(112%);
     }
 }
