@@ -3,6 +3,7 @@
 /*
   1. card
   2. header
+  3. nav
 */
 
 //1.========== card==========
@@ -61,12 +62,14 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 21px;
+        margin: 0px 20px;
     }
     .header-info-btn {
         font-style: normal;
         font-weight: normal;
         font-size: 18px;
         line-height: 21px;
+        padding-right: 30px;
     }
 }
 
@@ -75,6 +78,23 @@
     align-items: center;
     justify-content: space-between;
     width: 235px;
-    .header-logo-btn {}
-    .header-logo-logo {}
+    .header-logo-icon {
+        padding-left: 30px;
+    }
+    .header-logo-logo {
+        padding-right: 30px;
+    }
+}
+
+//============nav============
+.nav-menu {
+    width: 100%;
+    .nav-menu-icon {}
+    .nav-menu-list {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--color-list-nav);
+    }
 }

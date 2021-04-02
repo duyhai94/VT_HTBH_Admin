@@ -11,4 +11,8 @@ export class HeaderInfoComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  btnLogout() {
+    console.log('logout');
+  }
 }

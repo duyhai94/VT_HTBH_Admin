@@ -1,13 +1,19 @@
 <div class="main-layout">
     <div class="main-layout-header">
         <app-header-logo></app-header-logo>
-        <app-header-info></app-header-info>
+        <app-header-info>
+
+        </app-header-info>
     </div>
     <div class="main-layout-body">
-        <div class="main-layout-nav"></div>
+        <div class="main-layout-nav">
+            <app-nav-menu [dataNavMenu]='dataNav'>
+
+            </app-nav-menu>
+
+        </div>
         <div class="main-layout-section">
-            <ng-content>
-            </ng-content>
+            <router-outlet></router-outlet>
         </div>
     </div>
 

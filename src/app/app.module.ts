@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { NavMenuComponent } from './components/nav/nav-menu/nav-menu.component';
 
 @NgModule({
-  declarations: [AppComponent, NavMenuComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent],

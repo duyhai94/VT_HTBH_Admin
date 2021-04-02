@@ -1,13 +1,12 @@
-<div class="header-info" [style.width]="dataHeaderInfo.width" [style.height]="dataHeaderInfo.height">
+<div class="header-info">
     <div class="header-info-avt">
-        {{dataHeaderInfo.avt}}
+        <!-- {{dataHeaderInfo.avt}} -->
     </div>
     <div class="header-info-name">
-        {{dataHeaderInfo.name}}
-
+        <!-- {{dataHeaderInfo.name}} -->
+        Anh Nguyễn
     </div>
-    <div class="header-info-btn">
-        {{dataHeaderInfo.btn}}
-
+    <div class="header-info-btn" (click)="btnLogout()">
+        <!-- {{dataHeaderInfo.btn}} -->
+        <img src="assets/img/expand_more.svg" alt="">
     </div>
-</div>

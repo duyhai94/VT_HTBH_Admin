@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CardComponentModule } from 'src/app/components/card/card-component.module';
+import { BaseCardModule } from 'src/app/components/card/base-card/base-card.component';
 import { LayoutModule } from 'src/app/components/layout/layout.module';
 import { ContractComponent } from './contract/contract.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -20,7 +20,7 @@ import { SettingComponent } from './setting/setting.component';
     CommonModule,
     RouterModule.forChild(mainRoutes),
     LayoutModule,
-    CardComponentModule,
+    BaseCardModule
   ],
   providers: [],
 })
