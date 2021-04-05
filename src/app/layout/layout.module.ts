@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderComponentModule } from '../header/header-component.module';
-import { NavComponentModule } from '../nav/nav-menu.module';
+import { HeaderComponentModule } from '../components/header/header-component.module';
+import { NavComponentModule } from '../components/nav/nav-menu.module';
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 

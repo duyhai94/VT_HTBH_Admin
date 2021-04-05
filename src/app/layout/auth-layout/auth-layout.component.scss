@@ -1,0 +1,23 @@
+.auth-layout {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    .auth-layout-banner {
+        width: 50%;
+        height: 100vh;
+        background-image: url('../../../assets/img/bg-auth.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom left;
+        .auth-layout-banner-logo {
+            display: flex;
+            justify-content: center;
+            padding-top: 20%;
+        }
+    }
+    .auth-layout-content {
+        width: 50%;
+        height: 100vh;
+    }
+}
