@@ -104,7 +104,7 @@
     .header-logo-icon {
         padding-left: 30px;
     }
-    .header-logo-logo {
+    .header-logo-img {
         padding-right: 30px;
     }
 }
@@ -113,7 +113,7 @@
 .nav-menu {
     display: flex;
     align-items: center;
-    margin: 10px;
+    padding: 10px 16px;
     border-radius: 10px;
     cursor: pointer;
     outline: none;
@@ -121,7 +121,7 @@
     .nav-menu-icon {
         width: 24px;
         height: 24px;
-        margin: 0px 10px;
+        margin-right: 10px;
     }
     .nav-menu-list {
         font-style: normal;

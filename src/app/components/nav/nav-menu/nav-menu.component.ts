@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -11,3 +13,12 @@ export class NavMenuComponent implements OnInit {
 
   ngOnInit(): void {}
 }
+
+
+@NgModule({
+  declarations: [NavMenuComponent],
+  imports: [CommonModule, RouterModule],
+
+  exports: [NavMenuComponent],
+})
+export class NavComponentModule {}

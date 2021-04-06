@@ -9,18 +9,18 @@
         justify-content: space-between;
         align-items: center;
     }
-    .main-layout-body {
+    .example-container {
         width: 100%;
         height: 90%;
+    }
+    .example-sidenav-content {
         display: flex;
-        .main-layout-nav {
-            width: 235px;
-        }
-        .main-layout-section {
-            width: calc(100% - 235px);
-            border: 1px solid rebeccapurple;
-            background-color: var(--color-section);
-            padding: 16px;
-        }
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-section);
+    }
+    .example-sidenav {
+        padding: 20px;
     }
 }
