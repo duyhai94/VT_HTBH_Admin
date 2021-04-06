@@ -1,12 +1,35 @@
 //========table of contents======
 
 /*
-  1. card
-  2. header
-  3. nav
+  1. login
+  2. card
+  3. header
+  4. nav
 */
 
-//1.========== card==========
+//1===========login===========
+.login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .login-text-header {
+        font-weight: 800;
+        font-size: 42px;
+        line-height: 51px;
+        color: #222222;
+        text-align: center;
+    }
+    .login-link {
+        text-align: right;
+        width: 320px;
+        color: #000000;
+    }
+}
+
+//2.========== card==========
 .base-card {
     background-color: rgb(122, 174, 219);
     border-radius: 10px;
@@ -46,7 +69,7 @@
     color: var( --color-warning);
 }
 
-//2.============= header=========
+//3.============= header=========
 .header-info {
     display: flex;
     align-items: center;
@@ -86,26 +109,28 @@
     }
 }
 
-//============nav============
+//4============nav============
 .nav-menu {
     display: flex;
     align-items: center;
-    margin: 16px;
-    padding: 14px;
+    margin: 10px;
     border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    height: 60px;
     .nav-menu-icon {
         width: 24px;
         height: 24px;
-        margin-right: 10px;
+        margin: 0px 10px;
     }
     .nav-menu-list {
         font-style: normal;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 16px;
         line-height: 20px;
-        color: var(--color-list-nav);
         word-break: keep-all;
         max-width: 150px;
+        color: var(--color-list-nav);
     }
 }
 
@@ -113,11 +138,11 @@
     background: #0A2956;
 }
 
-.nav-menu-list-active {
-    color: #ffffff !important;
+.nav-menu-active-list {
+    color: #FFFFFF !important;
 }
 
-.nav-menu-icon-active {
+.nav-menu-active-icon {
     img {
         filter: invert(15%) sepia(94%) saturate(6481%) hue-rotate(342deg) brightness(97%) contrast(112%);
     }

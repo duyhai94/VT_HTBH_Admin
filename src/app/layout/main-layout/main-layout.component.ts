@@ -13,14 +13,19 @@ export class MainLayoutComponent implements OnInit {
       {
         icon: 'assets/img/nav/ic-account.svg',
         name: 'Danh sách nhân viên bán hàng',
+        linkURL: '/main/employee'
       },
       {
         icon: 'assets/img/nav/analystics.svg',
         name: 'Danh sách hợp đồng',
+        linkURL: '/main/contract'
+
       },
       {
         icon: 'assets/img/nav/recommendation.svg',
         name: 'Cấu hình hoa hồng',
+        linkURL: '/main/setting'
+
       }
     ],
   };
