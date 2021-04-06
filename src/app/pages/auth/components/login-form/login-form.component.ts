@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input,  OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input,  NgModule,  OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +8,11 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
+  @Input() loginFormTitle;
   @Input() btnTitle = 'Đăng nhập';
   @Output() onSubmit = new EventEmitter();
   @Output() onForgotPW = new EventEmitter();
+
   form = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
@@ -21,6 +24,15 @@ export class LoginFormComponent implements OnInit {
     this.onSubmit.emit(this.form.value);
   }
 }
+
+@NgModule({
+  declarations: [LoginFormComponent],
+  imports: [CommonModule, FormsModule,
+    ReactiveFormsModule,],
+  exports: [LoginFormComponent]
+})
+
+export class  LoginFormMudule{} 
 
 
 

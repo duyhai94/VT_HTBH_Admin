@@ -5,17 +5,19 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from 'src/app/layout/layout.module';
 import { AuthComponent } from './auth.component';
 import { authRoutes } from './auth.routes';
-import { LoginFormComponent } from './login/login-form/login-form.component';
+import {  LoginFormMudule } from './components/login-form/login-form.component';
 import { LoginComponent } from './login/login.component';
+import { ForgotComponent } from './forgot/forgot.component';
 
 @NgModule({
-  declarations: [AuthComponent,LoginComponent, LoginFormComponent ],
+  declarations: [AuthComponent,LoginComponent, ForgotComponent,  ],
   imports: [
     CommonModule,
     RouterModule.forChild(authRoutes),
     LayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
+    // FormsModule,
+    // ReactiveFormsModule,
+    LoginFormMudule
     
 
   ],

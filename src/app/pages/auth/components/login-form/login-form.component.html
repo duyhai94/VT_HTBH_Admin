@@ -1,18 +1,13 @@
 <form class="form-login" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="form-login-header">Đăng nhập</div>
 
     <input class="form-login-input" type="tel" formControlName="username" placeholder="Số điện thoại">
     <span class="login-error">Số điện thoại không đúng</span>
-
-
 
     <input class="form-login-input" type="password" formControlName="password" placeholder="Mật khẩu">
     <span class="login-error">Số điện thoại không đúng</span>
 
     <button class="form-login-btn">
-        Đăng nhập
+       {{btnTitle}}
     </button>
-    <div class="form-login-forgot">
-        <a (click)="onForgotPW.emit('/link')">Quên mật khẩu</a>
-    </div>
+
 </form>
