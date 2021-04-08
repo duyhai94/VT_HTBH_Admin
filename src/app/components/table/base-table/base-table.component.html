@@ -1,9 +1,9 @@
 <div>Danh sách nhân viên bán hàng</div>
-<table>
+<table class="table">
     <tr>
-        <th *ngFor="let item of data.tableHeader"> {{item}} </th>
+        <th class="table-header" *ngFor="let item of data.tableHeader"> {{item}} </th>
     </tr>
-    <tr *ngFor="let item of data.tableData">
+    <tr class="table-content" *ngFor="let item of data.tableData">
         <td *ngIf="item.id"> {{item.id}} </td>
         <td *ngIf="item.contractId"> {{item.contractId}} </td>
         <td *ngIf="item.name"> {{item.name}} </td>
