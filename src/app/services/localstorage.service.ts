@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanLoad, Router } from '@angular/router';
-import { from, Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })

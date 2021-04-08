@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotComponent implements OnInit {
  
+  data = {
+    type: {
+      phone : 'phone',
+    }
+   }
   constructor() {}
 
   ngOnInit(): void {}

@@ -21,6 +21,7 @@ import {
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit, OnChanges {
+  @Input() loginFormData;
   @Input() loginFormTitle;
   @Input() btnTitle = 'Đăng nhập';
   @Input() numberCol = [];

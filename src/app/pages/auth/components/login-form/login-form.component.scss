@@ -3,21 +3,35 @@
     width: 320px;
     display: flex;
     flex-direction: column;
-    .form-login-input {
-        border-radius: 12px;
-        height: 44px;
-        margin-top: 20px;
-        outline: none;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 20px;
-        padding: 0px 16px;
-        border: 0.5px solid rgba($color: #000000, $alpha: 0.5);
-    }
-    input:focus {
-        background: #FBFBFB;
-        border: 1px solid #EE0033;
+    .form-group {
+        height: 72px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .form-login-input {
+            border-radius: 12px;
+            height: 44px;
+            outline: none;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 20px;
+            padding: 0px 16px;
+            border: 0.5px solid rgba($color: #000000, $alpha: 0.5);
+        }
+        input:focus {
+            background: #FBFBFB;
+            border: 1px solid #EE0033;
+        }
+        .login-error {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 17px;
+            color: #EE0033;
+            padding-top: 10px;
+        }
     }
     .form-login-btn {
         background: #F899AD;
@@ -31,15 +45,6 @@
         height: 44px;
         outline: none;
         border: none;
-        margin: 16px 0px;
-    }
-    .login-error {
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 17px;
-        color: #EE0033;
-        padding-top: 10px;
     }
     .form-login-forgot {
         text-align: right;
