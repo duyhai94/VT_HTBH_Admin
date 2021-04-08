@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AppGuard } from 'src/app/utils/guards/app.guard';
 import { ContractComponent } from './contract/contract.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { MainComponent } from './main.component';

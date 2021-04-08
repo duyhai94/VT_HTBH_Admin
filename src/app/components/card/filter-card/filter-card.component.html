@@ -3,39 +3,46 @@
         Tìm kiếm theo
     </div>
     <div class="filter-card-data" *ngFor="let item of listFilter">
+        <div class="list-data" *ngIf="item.type.Id== 'id'">
+            <div class="label"> ID</div>
+            <input type="text" class="input" placeholder="Nhập ID">
+        </div>
+        <div class="list-data" *ngIf="item.type.Phone == 'phone'">
+            <div class="label"> Số điện thoại </div>
+            <input type="text" class="input" placeholder="Nhập số điện thoại">
+        </div>
 
-
-        <div class="list-data" *ngIf="item.type == 'contractCode'">
+        <div class="list-data" *ngIf="item.type.Contract == 'Contract'">
             <div class="label"> Mã hợp đồng </div>
             <input type="text" class="input" placeholder="Nhập mã hợp đồng">
         </div>
 
-        <div class="list-data" *ngIf="item.type == 'seller'">
+        <div class="list-data" *ngIf="item.type.Seller == 'Seller'">
             <div class="label"> Người bán </div>
             <input type="text" class="input" placeholder="Nhập số điện thoại">
         </div>
 
-        <div class="list-data" *ngIf="item.type == 'startDate'">
+        <div class="list-data" *ngIf="item.type.startDate == 'startDate'">
             <div class="label"> Khoảng ngày </div>
             <input type="text" class="input" placeholder="dd/mm/yy">
         </div>
 
-        <div class="list-data" *ngIf="item.type == 'endDate'">
+        <div class="list-data" *ngIf="item.type.endDate == 'endDate'">
             <div class="label"> đến </div>
             <input type="text" class="input" placeholder="dd/mm/yy">
         </div>
 
-        <div class="list-data" *ngIf="item.type == 'status'">
+        <div class="list-data" *ngIf="item.type.Status == 'status'">
             <div class="label"> Trạng thái </div>
             <input type="text" class="input" placeholder="Tất cả">
         </div>
 
-        <div class="list-data" *ngIf="item.type == 'product'">
+        <div class="list-data" *ngIf="item.type.Product == 'product'">
             <div class="label"> Sản phẩm </div>
             <input type="text" class="input" placeholder="Tất cả">
         </div>
 
-        <div class="list-data" *ngIf="item.type == 'typeDayFilter'">
+        <div class="list-data" *ngIf="item.type.typeDayFilter == 'typeDayFilter'">
             <div class="label"> loại ngày lọc </div>
             <input type="text" class="input" placeholder="Loại ngày lọc">
         </div>

@@ -10,6 +10,7 @@ import { MainComponent } from './main.component';
 import { mainRoutes } from './main.routes';
 import { SettingComponent } from './setting/setting.component';
 import { DetailComponent } from './contract/detail/detail.component';
+import { BaseTableModule } from 'src/app/components/table/base-table/base-table.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailComponent } from './contract/detail/detail.component';
     RouterModule.forChild(mainRoutes),
     LayoutModule,
     BaseCardModule,
-    FilterCardModule
+    FilterCardModule,
+    BaseTableModule
 
   ],
   providers: [],

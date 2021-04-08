@@ -19,6 +19,7 @@ export class APIInterceptor implements HttpInterceptor {
       url: `${environment.API_URL}/${req.url}`,
       setHeaders: {
         'Content-Type': 'application/json',
+        'X-CBH-VIETTEL':  'd96ed56b-a0c9-4fc8-9bb8-adcc285b904d-cbh-viettel'
       },
     });
     return next.handle(request).pipe(retry(1));

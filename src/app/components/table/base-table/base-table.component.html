@@ -1,0 +1,22 @@
+<div>Danh sách nhân viên bán hàng</div>
+<table>
+    <tr>
+        <th *ngFor="let item of data.tableHeader"> {{item}} </th>
+    </tr>
+    <tr *ngFor="let item of data.tableData">
+        <td *ngIf="item.id"> {{item.id}} </td>
+        <td *ngIf="item.contractId"> {{item.contractId}} </td>
+        <td *ngIf="item.name"> {{item.name}} </td>
+        <td *ngIf="item.seller"><span>{{item.seller.name}}</span> <span>{{item.seller.phone}}</span> </td>
+        <td *ngIf="item.phone"> {{item.phone}} </td>
+        <td *ngIf="item.customer"><span>{{item.customer.name}}</span> <span>{{item.customer.phone}}</span> </td>
+        <td *ngIf="item.dob"> {{item.dob}} </td>
+        <td *ngIf="item.productName"> {{item.productName}} </td>
+        <td *ngIf="item.gender"> {{item.gender}} </td>
+        <td *ngIf="item.joinDate"> {{item.joinDate}} </td>
+        <td *ngIf="item.createdDate"> {{item.createdDate}} </td>
+        <td *ngIf="item.stopDate"> {{item.stopDate}} </td>
+        <td *ngIf="item.activeDate"> {{item.activeDate}} </td>
+        <td *ngIf="item.status"> {{item.status === 2 ? 'Đang hoạt động':'Bị khóa'}} </td>
+    </tr>
+</table>
