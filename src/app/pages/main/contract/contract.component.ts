@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TableModel } from 'src/app/models/base/table.model';
 @Component({
   selector: 'app-contract',
   templateUrl: './contract.component.html',
@@ -7,7 +7,72 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContractComponent implements OnInit {
   data = {
-    
+  };
+  dataFilterCard = [
+    {type : {
+      Contract: 'Contract',
+      Seller: 'Seller',
+      startDate : 'startDate',
+      endDate: 'endDate',
+      Status: 'status',
+      Product: 'product',
+      typeDayFilter: 'typeDayFilter',
+    }}
+  ]
+  dataTable: TableModel = {
+    tableHeader: ['ID','Họ tên','Số điện thoại','Ngày sinh','Giới tính','Ngày tham gia','Ngày dừng', 'Trạng thái'],
+    tableData: [
+      {
+        id: 1,
+        name:'Hải cao duy',
+        phone: '0123456789',
+        dob: '2020-03-12',
+        gender: 'nam',
+        joinDate:  '2020-03-12',
+        stopDate: '2020-03-12',
+        status: 2
+      },
+      {
+        id: 2,
+        name:'Hải cao duy',
+        phone: '0123456789',
+        dob: '2020-03-12',
+        gender: 'nam',
+        joinDate:  '2020-03-12',
+        stopDate: '2020-03-12',
+        status: 4
+      },
+      {
+        id: 3,
+        name:'Hải cao duy',
+        phone: '0123456789',
+        dob: '2020-03-12',
+        gender: 'nam',
+        joinDate:  '2020-03-12',
+        stopDate: '2020-03-12',
+        status: 2
+      },
+      {
+        id: 4,
+        name:'Hải cao duy',
+        phone: '0123456789',
+        dob: '2020-03-12',
+        gender: 'nam',
+        joinDate:  '2020-03-12',
+        stopDate: '2020-03-12',
+        status: 2
+      },
+      {
+        id: 5,
+        name:'Hải cao duy',
+        phone: '0123456789',
+        dob: '2020-03-12',
+        gender: 'nam',
+        joinDate:  '2020-03-12',
+        stopDate: '2020-03-12',
+        status: 2
+      }
+    ]
   }
   constructor() { }
 

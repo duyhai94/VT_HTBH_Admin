@@ -1,4 +1,5 @@
-<div class="contract">
-    <app-filter-card></app-filter-card>
-    <a routerLink="detail">detail</a>
+<app-filter-card [listFilter]="dataFilterCard"></app-filter-card>
+
+<div class="contract-table">
+    <app-base-table [data]="dataTable"></app-base-table>
 </div>
