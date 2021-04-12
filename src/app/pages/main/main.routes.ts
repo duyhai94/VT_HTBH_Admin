@@ -4,7 +4,7 @@ import { ContractComponent } from './contract/contract.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { MainComponent } from './main.component';
 import { SettingComponent } from './setting/setting.component';
-
+import { DetailComponent } from "./contract/detail/detail.component";
 export const mainRoutes: Routes = [
   {
     path: '',
@@ -21,6 +21,10 @@ export const mainRoutes: Routes = [
       {
         path: 'setting',
         component: SettingComponent,
+      },
+      {
+        path: 'contract/detail',
+        component: DetailComponent,
       },
       {
         path: '',
