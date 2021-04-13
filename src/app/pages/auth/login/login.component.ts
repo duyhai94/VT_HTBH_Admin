@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     private localStorage: LocalStorageService,
     private authService: AuthenticationService
   ) {}
+  
   data = {
     type: {
       phone: 'phone',
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['employee']);
         },
         (err) => {
+          console.log(err);
+          
         }
       );
   }

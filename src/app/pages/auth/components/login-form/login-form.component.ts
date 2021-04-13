@@ -13,6 +13,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -29,7 +30,9 @@ export class LoginFormComponent implements OnInit, OnChanges {
   @Output() onForgotPW = new EventEmitter();
 
   form = new FormGroup({
-    username: new FormControl(''),
+    username: new FormControl(''
+    // ,Validators.pattern('/[(0-9)]/')
+    ),
     password: new FormControl(''),
   });
   constructor() {}
@@ -38,10 +41,16 @@ export class LoginFormComponent implements OnInit, OnChanges {
   ngOnChanges() {
     
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   submit() {
+    // if(this.form.invalid){
+    //       console.log(this.form.invalid);
+          
+    // }
     this.onSubmit.emit(this.form.value);
   }
+
 }
 
 @NgModule({

@@ -1,0 +1,17 @@
+.detail-contract {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "a a a a" "b b c c";
+    grid-gap: 16px;
+    .detail-contract-item {
+        grid-area: a;
+    }
+    .detail-contract-item-1 {
+        grid-area: b;
+    }
+    .detail-contract-item-2 {
+        grid-area: c;
+    }
+}
