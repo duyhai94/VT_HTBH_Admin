@@ -2,7 +2,6 @@
     <app-filter-card [listFilter]="dataFilterCard">
 
     </app-filter-card>
-    <app-base-table [data]="dataTable"></app-base-table>
+    <app-base-table [data]="dataTable" (callback)="handleEventRouter($event)"></app-base-table>
 
-    <a routerLink="detail">detail</a>
 </div>

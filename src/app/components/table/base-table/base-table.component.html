@@ -3,7 +3,7 @@
     <tr>
         <th class="table-header" *ngFor="let item of data.tableHeader"> {{item}} </th>
     </tr>
-    <tr class="table-content" *ngFor="let item of data.tableData">
+    <tr class="table-content" *ngFor="let item of data.tableData" (click)="handleEventRoute(item)">
         <td *ngIf="item.id"> {{item.id}} </td>
         <td *ngIf="item.contractId"> {{item.contractId}} </td>
         <td *ngIf="item.name"> {{item.name}} </td>
