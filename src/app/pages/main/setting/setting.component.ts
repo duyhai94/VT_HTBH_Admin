@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-setting',
@@ -13,3 +13,5 @@ export class SettingComponent implements OnInit {
   }
 
 }
+
+

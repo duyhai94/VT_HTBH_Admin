@@ -11,6 +11,8 @@ import { mainRoutes } from './main.routes';
 import { SettingComponent } from './setting/setting.component';
 import { DetailComponent } from './contract/detail/detail.component';
 import { BaseTableModule } from 'src/app/components/table/base-table/base-table.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { BoxCardModule } from 'src/app/components/card/box-card/box-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { BaseTableModule } from 'src/app/components/table/base-table/base-table.
     LayoutModule,
     BaseCardModule,
     FilterCardModule,
-    BaseTableModule
+    BaseTableModule,
+    MatTabsModule,
+    BoxCardModule,
 
   ],
   providers: [],

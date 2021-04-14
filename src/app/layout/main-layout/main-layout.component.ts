@@ -21,20 +21,20 @@ export class MainLayoutComponent implements OnInit {
       {
         icon: 'assets/img/nav/ic-account.svg',
         name: 'Danh sách nhân viên bán hàng',
-        linkURL: '/employee'
+        linkURL: '/main/employee'
       },
       {
         icon: 'assets/img/nav/recommendation.svg',
 
         name: 'Danh sách hợp đồng',
-        linkURL: '/contract'
+        linkURL: '/main/contract'
 
       },
       {
         icon: 'assets/img/nav/analystics.svg',
 
         name: 'Cấu hình hoa hồng',
-        linkURL: '/setting'
+        linkURL: '/main/setting'
 
       }
     ],

@@ -1,0 +1,32 @@
+.setting {
+    padding: 16px;
+    .setting-content {
+        padding: 16px;
+    }
+}
+
+::ng-deep mat-tab-group {
+    background: #FFFFFF;
+    height: 100%;
+}
+
+::ng-deep .mat-tab-label-active {
+    color: #EE0033 !important;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #EE0033 !important;
+}
+
+::ng-deep .sc-table {
+    .mat-tab-group.mat-primary .mat-ink-bar,
+    .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+        background-color: #FFFFFF !important;
+    }
+    .mat-tab-nav-bar,
+    .mat-tab-header {
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        border-bottom: none;
+    }
+}

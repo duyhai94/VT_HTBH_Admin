@@ -31,7 +31,7 @@ export class LoginFormComponent implements OnInit, OnChanges {
 
   form = new FormGroup({
     username: new FormControl(''
-    // ,Validators.pattern('/[(0-9)]/')
+    // ,Validators.pattern(' /^[0]{1}([2]|[3]|[5]|[9]|[7]|[8]){1}[0-9]\d{7}?$/g')
     ),
     password: new FormControl(''),
   });

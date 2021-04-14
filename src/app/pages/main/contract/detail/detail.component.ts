@@ -11,7 +11,7 @@ export class DetailComponent implements OnInit {
     heigth: '',
     cssClass: 'base-card',
     title: {
-      text: 'Chi tiết nhân viên bán hàng - #23535',
+      text: 'Chi tiết hợp đồng - #DV865926',
       status: '',
     },
     list: [
