@@ -16,15 +16,15 @@ export const mainRoutes: Routes = [
       },
       {
         path: 'contract',
-        component: ContractComponent,
+        component: ContractComponent, data: { animation: 'isRight' } 
       },
       {
         path: 'setting',
-        component: SettingComponent,
+        component: SettingComponent,data: { animation: 'isRight' } 
       },
       {
         path: 'contract/detail',
-        component: DetailComponent,
+        component: DetailComponent,data: { animation: 'isRight' } 
       },
       {
         path: '',

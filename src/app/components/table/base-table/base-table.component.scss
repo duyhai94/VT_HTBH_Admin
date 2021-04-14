@@ -1,6 +1,15 @@
+.header {
+    padding: 16px 0px;
+}
+
 .table {
     width: 100%;
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 16px;
     tr {
+        border-bottom: 1px solid red;
+        cursor: pointer;
         th {
             font-style: normal;
             font-weight: bold;
@@ -8,6 +17,16 @@
             line-height: 20px;
             color: #222222;
             text-align: center;
+            height: 55px;
+        }
+        td {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 20px;
+            color: #222222;
+            text-align: center;
+            height: 55px;
         }
     }
 }

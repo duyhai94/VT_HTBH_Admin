@@ -21,45 +21,7 @@ export interface modelF {
   styleUrls: ['./employee.component.scss'],
 })
 export class EmployeeComponent implements OnInit {
-  data = {
-    width: '400px',
-    heigth: '',
-    cssClass: 'base-card',
-    title: {
-      text: 'Chi tiết nhân viên bán hàng - #23535',
-      status: '',
-    },
-    list: [
-      {
-        label: 'text',
-        value: '123456',
-      },
-      {
-        label: 'text',
-        value: '123456',
-      },
-      {
-        label: 'text',
-        value: '123456',
-      },
-      {
-        label: 'text',
-        value: '123456',
-      },
-      {
-        label: 'text',
-        value: '123456',
-      },
-      {
-        label: 'text',
-        value: '123456',
-      },
-      {
-        label: 'text',
-        value: '123456',
-      },
-    ],
-  };
+  
   dataFilterCard = [
     {type : {
       Id : 'id',

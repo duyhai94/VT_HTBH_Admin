@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/localstorage.service';
 
 @Component({
   selector: 'app-header-info',
@@ -8,11 +10,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderInfoComponent implements OnInit {
   @Input() dataHeaderInfo;
 
-  constructor() {}
+  constructor( private local : LocalStorageService,
+                private route : Router ) {}
 
   ngOnInit(): void {}
 
   btnLogout() {
-    console.log('logout');
+    this.local.clear();
+    this.route.navigate([''])
   }
+
+
 }

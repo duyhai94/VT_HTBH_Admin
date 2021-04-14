@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     private localStorage: LocalStorageService,
     private authService: AuthenticationService
   ) {}
+  
   data = {
     type: {
       phone: 'phone',
@@ -25,17 +26,17 @@ export class LoginComponent implements OnInit {
   login(ev) {
     this.authService
       .create({
-        username: '84963712001',
-        password: '864068',
+        username: ev.username,
+        password: ev.password,
       })
       .subscribe(
         (res) => {
-          console.log(res);
-          this.localStorage.set(' ', 'access_token');
+          this.localStorage.set('access_token', res);
           this.router.navigate(['employee']);
         },
         (err) => {
-          alert(err.message);
+          console.log(err);
+          
         }
       );
   }

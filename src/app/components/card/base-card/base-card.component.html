@@ -7,7 +7,7 @@
             {{dataCard.title.status}}
         </div>
     </div>
-    <div class="base-grid" [style.grid-template-columns]="numCol == 2 ? 'auto auto ': 'auto auto auto '">
+    <div class="base-grid" [style.grid-template-columns]="numCol">
         <div *ngFor="let i of dataCard.list">
             <div class="text-card-label">
                 {{i.label}}
