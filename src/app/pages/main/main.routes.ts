@@ -17,17 +17,18 @@ export const mainRoutes: Routes = [
         path: 'contract',
         component: ContractComponent,
         data: { animation: 'isRight' },
+        
       },
       {
         path: 'setting',
         component: SettingComponent,
         data: { animation: 'isRight' },
       },
-      {
-        path: 'contract/detail',
-        component: DetailComponent,
-        data: { animation: 'isRight' },
-      },
+      // {
+      //   path: 'contract/detail',
+      //   component: DetailComponent,
+      //   data: { animation: 'isRight' },
+      // },
 
       {
         path: '',

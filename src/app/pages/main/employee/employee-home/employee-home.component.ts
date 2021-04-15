@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TableModel } from 'src/app/models/base/table.model';
 export interface modelF {
   width: string;
@@ -85,9 +86,13 @@ export class EmployeeHomeComponent implements OnInit {
       }
     ]
   }
-  constructor() { }
+  constructor( private route : Router) { }
 
   ngOnInit(): void {
   }
-
+  handleEventRouter = (item) => {
+    console.log(item);
+    
+        this.route.navigateByUrl('/main/employee/detail')
+  };
 }

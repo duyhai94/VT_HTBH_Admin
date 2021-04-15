@@ -93,9 +93,5 @@ export class ContractComponent implements OnInit {
     console.log(item);
     
         this.route.navigateByUrl('/main/contract/detail')
-
-       
-    
-    
   };
 }

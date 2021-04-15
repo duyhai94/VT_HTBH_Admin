@@ -2,6 +2,6 @@
 
 </app-filter-card>
 <div class="employee-table">
-    <app-base-table [data]="dataTable"></app-base-table>
+    <app-base-table [data]="dataTable" (callback)="handleEventRouter($event)"></app-base-table>
 </div>
-<div [routerLink]="['/main/employee/detail']">detail</div>
+<!-- <div [routerLink]="['/main/employee/detail']">detail</div> -->
