@@ -2,6 +2,8 @@
     <app-filter-card [listFilter]="dataFilterCard">
 
     </app-filter-card>
-    <app-base-table [data]="dataTable" (callback)="handleEventRouter($event)"></app-base-table>
+    <div class="contract-table">
+        <app-base-table [data]="dataTable" (callback)="handleEventRouter($event)"></app-base-table>
 
+    </div>
 </div>

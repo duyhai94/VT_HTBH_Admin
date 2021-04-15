@@ -7,16 +7,15 @@ export const employeeRouter : Routes = [
   {
     path: '',
     component: EmployeeComponent,
+    data: { animation: 'isLeft' },
     children: [
       {
         path: '',
         component: EmployeeHomeComponent,
-        data: { animation: 'isRight' },
       },
       {
         path: 'detail',
         component: EmployeeDetailComponent,
-        data: { animation: 'isLeft' },
       },
     ]
   }

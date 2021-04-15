@@ -9,18 +9,15 @@ export const mainRoutes: Routes = [
         path: 'employee',
         loadChildren: () =>
           import('./employee/employee.module').then((m) => m.EmployeeModule),
-        data: { animation: 'isRight' },
       },
       {
         path: 'contract',
         loadChildren: () => import('./contract/contract.module').then ( m => m.ContractModule),
-        data: { animation: 'isRight' },
       },
       {
         path: 'setting',
         loadChildren: () =>
           import('./setting/setting.module').then((m) => m.SettingModule),
-        data: { animation: 'isRight' },
       },
      
 
