@@ -91,15 +91,11 @@ export class ContractComponent implements OnInit {
 
   handleEventRouter = (item) => {
     console.log(item);
-    switch (item.type) {
-      case 'router':
+    
         this.route.navigateByUrl('/main/contract/detail')
 
-        break;
+       
     
-      default:
-        break;
-    }
     
   };
 }
