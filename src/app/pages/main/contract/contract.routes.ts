@@ -7,17 +7,17 @@ export const contractRoute: Routes = [
   {
     path: '',
     component: ContractComponent,
+    data: { animation: 'isRight' },
+
     children: [
       {
         path: '',
         component: ContractHomeComponent,
-        data: { animation: 'isRight' },
 
       },
       {
         path: 'detail',
         component: ContractDetailComponent,
-        data: { animation: 'isRight' },
 
       }, 
     ]
