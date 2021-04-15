@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { ContractComponent } from './contract/contract.component';
 import { DetailComponent } from './contract/detail/detail.component';
 import { MainComponent } from './main.component';
-import { SettingComponent } from './setting/setting.component';
 export const mainRoutes: Routes = [
   {
     path: '',
@@ -12,16 +11,17 @@ export const mainRoutes: Routes = [
         path: 'employee',
         loadChildren: () =>
           import('./employee/employee.module').then((m) => m.EmployeeModule),
+        data: { animation: 'isRight' },
       },
       {
         path: 'contract',
         component: ContractComponent,
         data: { animation: 'isRight' },
-        
       },
       {
         path: 'setting',
-        component: SettingComponent,
+        loadChildren: () =>
+          import('./setting/setting.module').then((m) => m.SettingModule),
         data: { animation: 'isRight' },
       },
       // {
