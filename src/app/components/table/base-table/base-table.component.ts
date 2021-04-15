@@ -15,6 +15,7 @@ import { TableModel } from 'src/app/models/base/table.model';
   styleUrls: ['./base-table.component.scss'],
 })
 export class BaseTableComponent implements OnInit {
+  @Input() tableTitle;
   @Input() data: TableModel;
   @Output() callback = new EventEmitter();
 
@@ -23,17 +24,17 @@ export class BaseTableComponent implements OnInit {
   ngOnInit(): void {}
   handleEventRoute = (item) => {
     this.callback.emit({
-      type:'route',
+      type: 'route',
       data: item,
     });
   };
 
-  onDeleteItem =(item)=>{
+  onDeleteItem = (item) => {
     this.callback.emit({
-      type:'delete',
+      type: 'delete',
       data: item,
     });
-  }
+  };
 }
 
 @NgModule({
