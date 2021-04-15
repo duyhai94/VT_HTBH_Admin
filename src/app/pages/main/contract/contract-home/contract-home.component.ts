@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TableModel } from 'src/app/models/base/table.model';
+
 @Component({
-  selector: 'app-contract',
-  template: '<router-outlet></router-outlet>',
+  selector: 'app-contract-home',
+  templateUrl: './contract-home.component.html',
+  styleUrls: ['./contract-home.component.scss']
 })
-export class ContractComponent implements OnInit {
+export class ContractHomeComponent implements OnInit {
   dataFilterCard = [
     {
       type: {
@@ -82,15 +84,14 @@ export class ContractComponent implements OnInit {
         status: 2,
       },
     ],
-  };  
+  };
+  constructor(private route : Router) { }
 
-  constructor(private route: Router) {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   handleEventRouter = (item) => {
     console.log(item);
-
-    this.route.navigateByUrl('/main/contract/detail');
-  };
-}
+    
+        this.route.navigateByUrl('/main/contract/detail')
+  };}

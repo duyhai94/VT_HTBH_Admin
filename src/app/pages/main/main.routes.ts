@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { ContractComponent } from './contract/contract.component';
-import { DetailComponent } from './contract/detail/detail.component';
 import { MainComponent } from './main.component';
 export const mainRoutes: Routes = [
   {
@@ -15,7 +13,7 @@ export const mainRoutes: Routes = [
       },
       {
         path: 'contract',
-        component: ContractComponent,
+        loadChildren: () => import('./contract/contract.module').then ( m => m.ContractModule),
         data: { animation: 'isRight' },
       },
       {
@@ -24,11 +22,7 @@ export const mainRoutes: Routes = [
           import('./setting/setting.module').then((m) => m.SettingModule),
         data: { animation: 'isRight' },
       },
-      // {
-      //   path: 'contract/detail',
-      //   component: DetailComponent,
-      //   data: { animation: 'isRight' },
-      // },
+     
 
       {
         path: '',

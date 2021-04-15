@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-contract-detail',
+  templateUrl: './contract-detail.component.html',
+  styleUrls: ['./contract-detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class ContractDetailComponent implements OnInit {
   dataContract = {
     width: 'auto',
     heigth: '',
@@ -130,6 +130,5 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
 }
