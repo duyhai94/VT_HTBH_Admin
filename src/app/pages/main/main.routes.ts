@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
-import { AppGuard } from 'src/app/utils/guards/app.guard';
 import { ContractComponent } from './contract/contract.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { DetailComponent } from './contract/detail/detail.component';
 import { MainComponent } from './main.component';
 import { SettingComponent } from './setting/setting.component';
-import { DetailComponent } from "./contract/detail/detail.component";
 export const mainRoutes: Routes = [
   {
     path: '',
@@ -12,20 +10,25 @@ export const mainRoutes: Routes = [
     children: [
       {
         path: 'employee',
-        component: EmployeeComponent,
+        loadChildren: () =>
+          import('./employee/employee.module').then((m) => m.EmployeeModule),
       },
       {
         path: 'contract',
-        component: ContractComponent, data: { animation: 'isRight' } 
+        component: ContractComponent,
+        data: { animation: 'isRight' },
       },
       {
         path: 'setting',
-        component: SettingComponent,data: { animation: 'isRight' } 
+        component: SettingComponent,
+        data: { animation: 'isRight' },
       },
       {
         path: 'contract/detail',
-        component: DetailComponent,data: { animation: 'isRight' } 
+        component: DetailComponent,
+        data: { animation: 'isRight' },
       },
+
       {
         path: '',
         redirectTo: 'employee',
