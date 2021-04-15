@@ -9,18 +9,15 @@ export const employeeRouter : Routes = [
     component: EmployeeComponent,
     children: [
       {
-        path: 'home',
-        component: EmployeeHomeComponent
+        path: '',
+        component: EmployeeHomeComponent,
+        data: { animation: 'isRight' },
       },
       {
         path: 'detail',
-        component: EmployeeDetailComponent
+        component: EmployeeDetailComponent,
+        data: { animation: 'isLeft' },
       },
-      {
-        path:'',
-        redirectTo:'home',
-        pathMatch:'full'
-      }
     ]
   }
 ]

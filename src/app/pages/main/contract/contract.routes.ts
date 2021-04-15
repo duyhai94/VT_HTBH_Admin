@@ -9,18 +9,17 @@ export const contractRoute: Routes = [
     component: ContractComponent,
     children: [
       {
-        path: 'home',
-        component: ContractHomeComponent
+        path: '',
+        component: ContractHomeComponent,
+        data: { animation: 'isRight' },
+
       },
       {
         path: 'detail',
-        component: ContractDetailComponent
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      }     
+        component: ContractDetailComponent,
+        data: { animation: 'isRight' },
+
+      }, 
     ]
   }
 ]

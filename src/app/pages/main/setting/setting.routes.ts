@@ -8,15 +8,11 @@ export const settingRouter: Routes = [
     component: SettingComponent,
     children: [
       {
-        path: 'home',
-        component : SettingHomeComponent
-      },
-      {
         path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
+        component: SettingHomeComponent,
+        data: { animation: 'isRight' },
 
-      }
+      },
     ]
             
   }
