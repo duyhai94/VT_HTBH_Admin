@@ -9,7 +9,7 @@ import { fader } from 'src/app/utils/animations/fader.animation';
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
 `,
-animations: [fader],,
+animations: [fader],
 })
 export class SettingComponent {
   prepareRoute(outlet: RouterOutlet) {
