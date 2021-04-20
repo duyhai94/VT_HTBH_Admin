@@ -6,6 +6,6 @@ import { BaseApiService } from './base-api.service';
 })
 export class AuthenticationService extends BaseApiService<any> {
   constructor(http: HttpClient) {
-    super(http, 'api/authentication/Seller/Login');
+    super(http, 'api/SalesManager/Admin/Account/Login');
   }
 }

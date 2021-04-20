@@ -16,7 +16,7 @@ export class ForgotComponent implements OnInit {
 
   ngOnInit(): void {}
   forgot(ev){
-    console.log(ev);
+    console.log(ev.username);
 
   }
   routeTo(e) {

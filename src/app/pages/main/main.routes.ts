@@ -19,8 +19,6 @@ export const mainRoutes: Routes = [
         loadChildren: () =>
           import('./setting/setting.module').then((m) => m.SettingModule),
       },
-     
-
       {
         path: '',
         redirectTo: 'employee',

@@ -6,7 +6,7 @@
 
     <div class="form-group" *ngIf="loginFormData.type.password == 'password' ">
         <input class="form-login-input" type="password" formControlName="password" placeholder="Mật khẩu">
-        <!-- <div class="login-error"> Số điện thoại hoặc mật khẩu không đúng </div> -->
+        <div class="login-error"> {{loginError}} </div>
     </div>
     <button class="form-login-btn">
        {{btnTitle}}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/localstorage.service';
@@ -9,6 +9,7 @@ import { LocalStorageService } from 'src/app/services/localstorage.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  errorLogin: any;
   constructor(
     private router: Router,
     private localStorage: LocalStorageService,
@@ -34,9 +35,8 @@ export class LoginComponent implements OnInit {
           this.localStorage.set('access_token', res);
           this.router.navigate(['employee']);
         },
-        (err) => {
-          console.log(err);
-          
+        (err) => {          
+          this.errorLogin = err.error.message;
         }
       );
   }

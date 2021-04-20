@@ -24,6 +24,7 @@ import {
 export class LoginFormComponent implements OnInit, OnChanges {
   @Input() loginFormData;
   @Input() loginFormTitle;
+  @Input() loginError;
   @Input() btnTitle = 'Đăng nhập';
   @Input() numberCol = [];
   @Output() onSubmit = new EventEmitter();
