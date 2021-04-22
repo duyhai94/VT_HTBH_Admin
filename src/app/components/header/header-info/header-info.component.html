@@ -1,20 +1,18 @@
-<div class="header-info">
+<div class="header-info" *ngIf="profile |async as pro">
     <div class="header-info-avt">
-        <!-- {{dataHeaderInfo.avt}} -->
+        <img [src]="pro.Avatar" alt="">
     </div>
-    <div class="header-info-name">
-        <!-- {{dataHeaderInfo.name}} -->
-        Anh Nguyễn
+    <div class="header-info-name ">
+        {{pro.FullName}}
     </div>
-    <!-- (click)="btnLogout()" -->
-    <div class="header-info-btn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <div class="header-info-btn " mat-icon-button [matMenuTriggerFor]="menu " aria-label="Example icon-button with a menu ">
         <!-- <mat-icon>more_vert</mat-icon> -->
-        <span class="material-icons">
+        <span class="material-icons ">
                 expand_more
                 </span>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="btnLogout()">
-                <mat-icon>  <span class="material-icons">
+            <button mat-menu-item (click)="btnLogout() ">
+                <mat-icon>  <span class="material-icons ">
                                     logout
                     </span> </mat-icon>
 
@@ -22,7 +20,7 @@
             </button>
 
             <button mat-menu-item>
-              <mat-icon><span class="material-icons">
+              <mat-icon><span class="material-icons ">
                 https
                 </span></mat-icon>
               <span>Đổi mật khẩu</span>

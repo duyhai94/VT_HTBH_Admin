@@ -20,10 +20,12 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(req);
     }
     let token = this.storage.get('access_token');
+    console.log(token);
+    
     if (token) {
       req = req.clone({
         setHeaders: {
-          Authorization: 'Bearer ' + token,
+          Authorization: 'Bearer ' + token.token,
         },
       });
     }

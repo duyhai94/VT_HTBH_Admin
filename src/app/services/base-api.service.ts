@@ -15,16 +15,16 @@ export abstract class BaseApiService<T> {
 
     return this.http
       .get(`${this.actionUrl}`, this.httpOptions)
-      .pipe(map((res: any) => res.Payload));
+      .pipe(map((res: any) => res));
   }
 
-  get(id: any, params?): Observable<HttpEvent<T>> {
+  get(id: any, params?): Observable<T> {
     this.httpOptions = {
       params,
     };
     return this.http
       .get<T>(`${this.actionUrl}/${id}`, this.httpOptions)
-      .pipe(map((res: any) => res.Payload));
+      .pipe(map((res: any) => res));
   }
 
   create(data: Partial<T>, params?, headers?): Observable<HttpEvent<T>> {
