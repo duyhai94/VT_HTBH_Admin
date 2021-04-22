@@ -7,7 +7,7 @@ import { BaseApiService } from "./base-api.service";
 @Injectable({
   providedIn: 'root',
 })
-export class ListContractService extends BaseApiService<any> {
+export class ContractService extends BaseApiService<any> {
   constructor(http: HttpClient) {
     super(http, 'api/SalesManager/Admin/ListPolicy');
   }
@@ -16,7 +16,7 @@ export class ListContractService extends BaseApiService<any> {
     return this.http.get<any>(`api/SalesManager/Admin/ListPolicy?pageindex=${pageindex}&pagesize=${pagesize}`).pipe(map((res: any) => res.data));
   }
 
-  getContract(id, SellerCode): Observable<any> {
+  getContractDetail(id, SellerCode): Observable<any> {
     return this.http.get<any>(`api/SalesManager/Admin/Policy?id=${id}&SellerCode=${SellerCode}`).pipe(map((res: any) => res.data));
   }
 

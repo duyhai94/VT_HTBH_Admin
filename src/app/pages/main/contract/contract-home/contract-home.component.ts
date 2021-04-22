@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Contract } from '../../../../models/list/list-contract.model';
-import { ListContractService } from 'src/app/services/list-contract.service';
+import { ContractService } from 'src/app/services/contract.service';
 
 @Component({
   selector: 'app-contract-home',
@@ -38,7 +38,7 @@ export class ContractHomeComponent implements OnInit {
   pageIndex = 1;
   pageSize = 5;
 
-  constructor(private route: Router, private contractService: ListContractService) { }
+  constructor(private route: Router, private contractService: ContractService) { }
 
   ngOnInit(): void {
     this.getContracts(1, 5);
@@ -46,7 +46,11 @@ export class ContractHomeComponent implements OnInit {
 
   handleEventRouter = (item) => {
     console.log(item);
-    this.route.navigateByUrl('contract/detail')
+    const contractQueryParams = {
+      id: item.data.id,
+      sellerCode: item.data.sellerCode
+    }
+    this.route.navigate(['/contract/detail'], { queryParams: contractQueryParams, queryParamsHandling: 'merge' });
   };
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { ContractService } from '../../../../services/contract.service';
 
 @Component({
   selector: 'app-contract-detail',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contract-detail.component.scss']
 })
 export class ContractDetailComponent implements OnInit {
+
   dataContract = {
     width: 'auto',
     heigth: '',
@@ -126,9 +129,22 @@ export class ContractDetailComponent implements OnInit {
       },
     ],
   };
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private contractService: ContractService) { }
 
   ngOnInit(): void {
+    this.getContractDetail();
+
+  }
+
+  getContractDetail() {
+    let id = this.activatedRoute.snapshot.queryParamMap.get('id');
+    let sellerCode = this.activatedRoute.snapshot.queryParamMap.get('sellerCode');
+    this.contractService.getContractDetail(id, sellerCode).subscribe(res => {
+      console.log('contract detail', res);
+
+    })
   }
 
 }
