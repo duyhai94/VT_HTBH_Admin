@@ -95,7 +95,7 @@ export class ContractHomeComponent implements OnInit {
   handleEventRouter = (item) => {
     console.log(item);
     
-        this.route.navigateByUrl('/main/contract/detail')
+        this.route.navigateByUrl('employee/detail')
   };
 
 

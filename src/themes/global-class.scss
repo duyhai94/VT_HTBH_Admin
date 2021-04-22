@@ -156,3 +156,34 @@
         filter: invert(15%) sepia(94%) saturate(6481%) hue-rotate(342deg) brightness(97%) contrast(112%);
     }
 }
+
+//5===========button================
+.btn-sc {
+    background: #F899AD;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    height: 44px;
+    outline: none;
+    border: none;
+    margin: 0px 16px;
+}
+
+.btn-cancel {
+    background: #FFFFFF;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #7A7A7A;
+    height: 44px;
+    outline: none;
+    border: none;
+    margin: 0px 16px;
+}

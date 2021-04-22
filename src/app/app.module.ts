@@ -7,9 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APIInterceptor } from './utils/interceptors/api.interceptor';
 import { AuthInterceptor } from './utils/interceptors/auth.interceptor';
+import { BaseButtonComponent } from './components/button/base-button/base-button.component';
 
 @NgModule({
-  declarations: [AppComponent,   ],
+  declarations: [AppComponent,],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),

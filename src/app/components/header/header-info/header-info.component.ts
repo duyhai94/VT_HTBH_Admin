@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ProfileModel } from 'src/app/models/profile/profile.model';
 import { LocalStorageService } from 'src/app/services/localstorage.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { ChangePasswordComponent } from '../../dialog/change-password/change-password.component';
 
 @Component({
   selector: 'app-header-info',
@@ -16,7 +18,8 @@ export class HeaderInfoComponent implements OnInit {
   profile: Observable<ProfileModel>;
   constructor( private local : LocalStorageService,
     private route: Router,
-    private profileService: ProfileService) { }
+    private profileService: ProfileService,
+    private dialog: MatDialog ) { }
 
   ngOnInit(): void {
    this.getProfile()
@@ -32,6 +35,13 @@ export class HeaderInfoComponent implements OnInit {
       return res.data
     }))
     
+  }
+  changePassword() : void {
+    this.dialog.open(ChangePasswordComponent, {
+      data: {}
+    })
+      .afterClosed()
+    .subscribe(() => {})
   }
 
 }

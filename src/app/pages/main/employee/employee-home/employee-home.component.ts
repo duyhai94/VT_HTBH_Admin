@@ -93,6 +93,6 @@ export class EmployeeHomeComponent implements OnInit {
   handleEventRouter = (item) => {
     console.log(item);
     
-        this.route.navigateByUrl('/main/employee/detail')
+        this.route.navigateByUrl('employee/detail')
   };
 }
