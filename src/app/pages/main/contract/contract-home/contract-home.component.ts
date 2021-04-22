@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { TableModel } from 'src/app/models/base/table.model';
+import { ListContractService } from 'src/app/services/list-contract.service';
 
 @Component({
   selector: 'app-contract-home',
@@ -85,7 +87,7 @@ export class ContractHomeComponent implements OnInit {
       },
     ],
   };
-  constructor(private route : Router) { }
+  constructor(private route : Router , private listContract: ListContractService) { }
 
   ngOnInit(): void {
   }
@@ -94,4 +96,13 @@ export class ContractHomeComponent implements OnInit {
     console.log(item);
     
         this.route.navigateByUrl('/main/contract/detail')
-  };}
+  };
+
+
+  getListContract() {
+    this.listContract.list({ pageindex: 1, pagesize: 5 }).pipe(map((res: any) => {
+      return res.data
+    }) 
+    )
+  }
+}
