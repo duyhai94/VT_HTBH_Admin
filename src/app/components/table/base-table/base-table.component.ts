@@ -7,6 +7,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { TableModel } from 'src/app/models/base/table.model';
 
 @Component({
@@ -19,9 +20,11 @@ export class BaseTableComponent implements OnInit {
   @Input() data: TableModel;
   @Output() callback = new EventEmitter();
 
-  constructor() {}
+  currentPage = 1;
 
-  ngOnInit(): void {}
+  constructor() { }
+
+  ngOnInit(): void { }
   handleEventRoute = (item) => {
     this.callback.emit({
       type: 'route',
@@ -35,11 +38,16 @@ export class BaseTableComponent implements OnInit {
       data: item,
     });
   };
+
+  pageChanged(e) {
+    this.currentPage = e
+  }
+
 }
 
 @NgModule({
   declarations: [BaseTableComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, NgxPaginationModule],
   exports: [BaseTableComponent],
 })
-export class BaseTableModule {}
+export class BaseTableModule { }

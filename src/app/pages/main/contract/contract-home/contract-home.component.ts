@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { TableModel } from 'src/app/models/base/table.model';
+import { Contract } from '../../../../models/list/list-contract.model';
 import { ListContractService } from 'src/app/services/list-contract.service';
 
 @Component({
@@ -23,86 +23,69 @@ export class ContractHomeComponent implements OnInit {
       },
     },
   ];
-  dataTable: TableModel = {
+  dataTable: Contract = {
     tableHeader: [
-      'ID',
-      'Họ tên',
-      'Số điện thoại',
-      'Ngày sinh',
-      'Giới tính',
-      'Ngày tham gia',
-      'Ngày dừng',
+      'Mã hợp đồng',
+      'Người bán',
+      'Đối tượng BH',
+      'Sản phẩm',
+      'Ngày tạo',
+      'Ngày hiệu lực',
       'Trạng thái',
     ],
-    tableData: [
-      {
-        id: 1,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2,
-      },
-      {
-        id: 2,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 4,
-      },
-      {
-        id: 3,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2,
-      },
-      {
-        id: 4,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2,
-      },
-      {
-        id: 5,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2,
-      },
-    ],
+    tableData: [],
   };
-  constructor(private route : Router , private listContract: ListContractService) { }
+  pageIndex = 1;
+  pageSize = 5;
+
+  constructor(private route: Router, private contractService: ListContractService) { }
 
   ngOnInit(): void {
+    this.getContracts(1, 5);
   }
 
   handleEventRouter = (item) => {
-    console.log(item);
-    
-        this.route.navigateByUrl('/main/contract/detail')
+    this.route.navigateByUrl('/contract/detail')
   };
 
 
-  getListContract() {
-    this.listContract.list({ pageindex: 1, pagesize: 5 }).pipe(map((res: any) => {
-      return res.data
-    }) 
-    )
+  getContracts(pageIndex, pageSize) {
+    this.contractService.getContract(pageIndex, pageSize).subscribe(res => {
+      this.dataTable.tableData = res.models.map(contract => {
+        return {
+          code: contract.code,
+          sellerName: contract.sellerName,
+          insuredFullName: contract.insuredFullName,
+          product: contract.product,
+          created: contract.created,
+          effectiveDate: contract.effectiveDate,
+          status: contract.status
+        }
+      });
+
+    })
   }
+
+  getNextData(currentSize, pageIndex, pageSize) {
+    this.contractService.getContract(pageIndex, pageSize).subscribe(res => {
+      let contract = res.models.map(contract => {
+        return {
+          code: contract.code,
+          sellerName: contract.sellerName,
+          insuredFullName: contract.insuredFullName,
+          product: contract.product,
+          created: contract.created,
+          effectiveDate: contract.effectiveDate,
+          status: contract.status
+        }
+      });
+      this.dataTable.tableData.length = currentSize;
+      this.dataTable.tableData.push(...contract);
+      this.dataTable.tableData.length = res.total;
+
+    })
+  }
+
+
+
 }

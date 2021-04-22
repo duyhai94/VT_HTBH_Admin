@@ -22,77 +22,79 @@ export interface modelF {
 })
 export class EmployeeHomeComponent implements OnInit {
   dataFilterCard = [
-    {type : {
-      Id : 'id',
-      Phone: 'phone',
-      startDate : 'startDate',
-      endDate: 'endDate',
-      Status: 'status'
-    }}
+    {
+      type: {
+        Id: 'id',
+        Phone: 'phone',
+        startDate: 'startDate',
+        endDate: 'endDate',
+        Status: 'status'
+      }
+    }
   ]
-    
+
   dataTable: TableModel = {
-    tableHeader: ['ID','Họ tên','Số điện thoại','Ngày sinh','Giới tính','Ngày tham gia','Ngày dừng', 'Trạng thái'],
+    tableHeader: ['ID', 'Họ tên', 'Số điện thoại', 'Ngày sinh', 'Giới tính', 'Ngày tham gia', 'Ngày dừng', 'Trạng thái'],
     tableData: [
       {
         id: 1,
-        name:'Hải cao duy',
+        name: 'Hải cao duy',
         phone: '0123456789',
         dob: '2020-03-12',
         gender: 'nam',
-        joinDate:  '2020-03-12',
+        joinDate: '2020-03-12',
         stopDate: '2020-03-12',
         status: 2
       },
       {
         id: 2,
-        name:'Hải cao duy',
+        name: 'Hải cao duy',
         phone: '0123456789',
         dob: '2020-03-12',
         gender: 'nam',
-        joinDate:  '2020-03-12',
+        joinDate: '2020-03-12',
         stopDate: '2020-03-12',
         status: 4
       },
       {
         id: 3,
-        name:'Hải cao duy',
+        name: 'Hải cao duy',
         phone: '0123456789',
         dob: '2020-03-12',
         gender: 'nam',
-        joinDate:  '2020-03-12',
+        joinDate: '2020-03-12',
         stopDate: '2020-03-12',
         status: 2
       },
       {
         id: 4,
-        name:'Hải cao duy',
+        name: 'Hải cao duy',
         phone: '0123456789',
         dob: '2020-03-12',
         gender: 'nam',
-        joinDate:  '2020-03-12',
+        joinDate: '2020-03-12',
         stopDate: '2020-03-12',
         status: 2
       },
       {
         id: 5,
-        name:'Hải cao duy',
+        name: 'Hải cao duy',
         phone: '0123456789',
         dob: '2020-03-12',
         gender: 'nam',
-        joinDate:  '2020-03-12',
+        joinDate: '2020-03-12',
         stopDate: '2020-03-12',
         status: 2
       }
     ]
   }
-  constructor( private route : Router) { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
   handleEventRouter = (item) => {
     console.log(item);
-    
-        this.route.navigateByUrl('/main/employee/detail')
+
+    this.route.navigateByUrl('/main/employee/detail')
   };
 }
