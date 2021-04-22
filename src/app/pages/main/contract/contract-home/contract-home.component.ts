@@ -46,13 +46,12 @@ export class ContractHomeComponent implements OnInit {
 
   handleEventRouter = (item) => {
     console.log(item);
-    
-        this.route.navigateByUrl('employee/detail')
+    this.route.navigateByUrl('contract/detail')
   };
 
 
   getContracts(pageIndex, pageSize) {
-    this.contractService.getContract(pageIndex, pageSize).subscribe(res => {
+    this.contractService.getContracts(pageIndex, pageSize).subscribe(res => {
       this.dataTable.tableData = res.models.map(contract => {
         return {
           code: contract.code,
@@ -61,7 +60,9 @@ export class ContractHomeComponent implements OnInit {
           product: contract.product,
           created: contract.created,
           effectiveDate: contract.effectiveDate,
-          status: contract.status
+          status: contract.status,
+          id: contract.id,
+          sellerCode: contract.sellerCode
         }
       });
 
@@ -69,7 +70,7 @@ export class ContractHomeComponent implements OnInit {
   }
 
   getNextData(currentSize, pageIndex, pageSize) {
-    this.contractService.getContract(pageIndex, pageSize).subscribe(res => {
+    this.contractService.getContracts(pageIndex, pageSize).subscribe(res => {
       let contract = res.models.map(contract => {
         return {
           code: contract.code,

@@ -19,7 +19,7 @@ export const contractRoute: Routes = [
         path: 'detail',
         component: ContractDetailComponent,
 
-      }, 
+      },
     ]
   }
 ]

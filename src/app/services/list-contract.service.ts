@@ -12,8 +12,12 @@ export class ListContractService extends BaseApiService<any> {
     super(http, 'api/SalesManager/Admin/ListPolicy');
   }
 
-  getContract(pageindex, pagesize): Observable<any> {
+  getContracts(pageindex, pagesize): Observable<any> {
     return this.http.get<any>(`api/SalesManager/Admin/ListPolicy?pageindex=${pageindex}&pagesize=${pagesize}`).pipe(map((res: any) => res.data));
+  }
+
+  getContract(id, SellerCode): Observable<any> {
+    return this.http.get<any>(`api/SalesManager/Admin/Policy?id=${id}&SellerCode=${SellerCode}`).pipe(map((res: any) => res.data));
   }
 
 }
