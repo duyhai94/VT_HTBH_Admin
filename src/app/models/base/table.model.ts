@@ -5,6 +5,7 @@ export interface TableModel {
 
 export interface TableData {
   id?: number;
+  code?: string;
   name?: string;
   phone?: string;
   dob?: string;
