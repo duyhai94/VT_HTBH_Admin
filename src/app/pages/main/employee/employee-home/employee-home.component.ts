@@ -67,7 +67,7 @@ export class EmployeeHomeComponent implements OnInit {
      
       {
         text: 'Trạng thái',
-        key: 'Status',
+        key: 'Pending',
       }      
     ],
     tableData: [{}],
