@@ -64,18 +64,18 @@ export class EmployeeHomeComponent implements OnInit {
         text: 'Ngày dừng',
         key: 'CancelDate',
       },
-     
+
       {
         text: 'Trạng thái',
-        key: 'Pending',
-      }      
+        key: 'Status',
+      }
     ],
-    tableData: [{}],
+
   };
   constructor(
     private route: Router,
     private employeeService: EmployeeService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getEmployees(1, 5);
