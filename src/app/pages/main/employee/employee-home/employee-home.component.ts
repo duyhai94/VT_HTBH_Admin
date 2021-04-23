@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TableModel } from 'src/app/models/base/table.model';
+import { EmployeeService } from '../../../../services/employee.service';
 export interface modelF {
   width: string;
   heigth: string;
@@ -35,67 +36,30 @@ export class EmployeeHomeComponent implements OnInit {
 
   dataTable: TableModel = {
     tableHeader: ['ID', 'Họ tên', 'Số điện thoại', 'Ngày sinh', 'Giới tính', 'Ngày tham gia', 'Ngày dừng', 'Trạng thái'],
-    tableData: [
-      {
-        id: 1,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2
-      },
-      {
-        id: 2,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 4
-      },
-      {
-        id: 3,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2
-      },
-      {
-        id: 4,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2
-      },
-      {
-        id: 5,
-        name: 'Hải cao duy',
-        phone: '0123456789',
-        dob: '2020-03-12',
-        gender: 'nam',
-        joinDate: '2020-03-12',
-        stopDate: '2020-03-12',
-        status: 2
-      }
-    ]
+    tableData: []
   }
-  constructor(private route: Router) { }
+  constructor(
+    private route: Router,
+    private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.getEmployees(1, 5);
   }
   handleEventRouter = (item) => {
     console.log(item);
-    
-        this.route.navigateByUrl('employee/detail')
+
+    const contractQueryParams = {
+      code: item.data.Code,
+    }
+    this.route.navigate(['/employee/detail'], { queryParams: contractQueryParams, queryParamsHandling: 'merge' });
 
   };
+
+  getEmployees(pageIndex, pageSize) {
+    this.employeeService.getEmployees(pageIndex, pageSize).subscribe(res => {
+      this.dataTable.tableData = res.reverse();
+      console.log('employee', res);
+
+    })
+  }
 }

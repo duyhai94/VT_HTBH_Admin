@@ -35,8 +35,6 @@ export class ContractHomeComponent implements OnInit {
     ],
     tableData: [],
   };
-  pageIndex = 1;
-  pageSize = 5;
 
   constructor(private route: Router, private contractService: ContractService) { }
 
@@ -56,38 +54,17 @@ export class ContractHomeComponent implements OnInit {
 
   getContracts(pageIndex, pageSize) {
     this.contractService.getContracts(pageIndex, pageSize).subscribe(res => {
-      this.dataTable.tableData = res.models.map(contract => {
-        return {
-          code: contract.code,
-          sellerName: contract.sellerName,
-          insuredFullName: contract.insuredFullName,
-          product: contract.product,
-          created: contract.created,
-          effectiveDate: contract.effectiveDate,
-          status: contract.status,
-          id: contract.id,
-          sellerCode: contract.sellerCode
-        }
-      });
+      this.dataTable.tableData = res.models;
+      console.log('contracts', this.dataTable.tableData);
 
     })
   }
 
   getNextData(currentSize, pageIndex, pageSize) {
     this.contractService.getContracts(pageIndex, pageSize).subscribe(res => {
-      let contract = res.models.map(contract => {
-        return {
-          code: contract.code,
-          sellerName: contract.sellerName,
-          insuredFullName: contract.insuredFullName,
-          product: contract.product,
-          created: contract.created,
-          effectiveDate: contract.effectiveDate,
-          status: contract.status
-        }
-      });
+      let contracts = res.models;
       this.dataTable.tableData.length = currentSize;
-      this.dataTable.tableData.push(...contract);
+      this.dataTable.tableData.push(...contracts);
       this.dataTable.tableData.length = res.total;
 
     })
