@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { ContractModel } from 'src/app/models/list/list-contract.model';
 import { ContractService } from '../../../../services/contract.service';
 
 @Component({
@@ -8,68 +9,18 @@ import { ContractService } from '../../../../services/contract.service';
   styleUrls: ['./contract-detail.component.scss']
 })
 export class ContractDetailComponent implements OnInit {
+  contract: ContractModel;
 
   dataContract = {
     width: 'auto',
     heigth: '',
     cssClass: 'base-card',
     title: {
-      text: 'Chi tiết hợp đồng -#DV865926',
+      text: '',
       status: '',
     },
     list: [
-      {
-        label: 'Mã hợp đồng',
-        value: 'DV29648265',
-      },
-      {
-        label: 'Hình thức thanh toán',
-        value: 'Viễn thông',
-      },
-      {
-        label: 'Ngày tạo',
-        value: '10/12/2019-12:00:00',
-      },
-      {
-        label: 'Sản phẩm',
-        value: 'Bảo Tâm An',
-      },
-      {
-        label: 'Ngày hiệu lực',
-        value: '12/12/2019',
-      },
-      {
-        label: 'Phí bảo hiểm',
-        value: '14.000đ',
-      },
-      {
-        label: 'Gói sản phẩm',
-        value: 'Cơ bản',
-      },
-      {
-        label: 'Ngày hêt hạn',
-        value: '12/12/2020',
-      },
-      {
-        label: 'Hoa hồng kênh',
-        value: '1.400đ',
-      },
-      {
-        label: 'Nhà cung cấp',
-        value: 'Bảo hiểm Bảo Long',
-      },
-      {
-        label: 'Chu kỳ',
-        value: 'Tuần',
-      },
-      {
-        label: 'Hoa hồng NVBH',
-        value: '1.000đ',
-      },
-      {
-        label: 'Trang thái',
-        value: 'Hoạt động',
-      },
+
     ],
   };
 
@@ -82,27 +33,10 @@ export class ContractDetailComponent implements OnInit {
       text: 'Người bán',
       status: '',
     },
-    list: [
-      {
-        label: 'Mã nhân viên',
-        value: '48265',
-      },
-      {
-        label: 'Số điện thoại',
-        value: '0987654321',
-      },
-      {
-        label: 'Họ tên',
-        value: 'Nguyễn Thị An',
-      },
-      {
-        label: 'Trạng thái',
-        value: 'Hoạt động',
-      },
-    ],
+    list: [],
   };
 
-  dataPeople = {
+  dataCustomer = {
     width: 'auto',
     heigth: '',
     cssClass: 'base-card',
@@ -110,24 +44,7 @@ export class ContractDetailComponent implements OnInit {
       text: 'Người được bảo hiểm',
       status: '',
     },
-    list: [
-      {
-        label: 'Họ và tên',
-        value: 'Trần Thị B',
-      },
-      {
-        label: 'Ngày sinh',
-        value: '12/12/1990',
-      },
-      {
-        label: 'Giới tính',
-        value: 'Nữ',
-      },
-      {
-        label: 'CMT/CCCD',
-        value: '98562875676',
-      },
-    ],
+    list: [],
   };
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -142,8 +59,101 @@ export class ContractDetailComponent implements OnInit {
     let id = this.activatedRoute.snapshot.queryParamMap.get('id');
     let sellerCode = this.activatedRoute.snapshot.queryParamMap.get('sellerCode');
     this.contractService.getContractDetail(id, sellerCode).subscribe(res => {
-      console.log('contract detail', res);
-
+      this.contract = res;
+      console.log('contract detail', this.contract);
+      let beneficiary = JSON.parse(this.contract.beneficiary).insureds[0];
+      console.log(beneficiary);
+      this.dataContract.title.text = `Chi tiết hợp đồng - #${this.contract.code}`
+      this.dataContract.list = [
+        {
+          label: 'Mã hợp đồng',
+          value: this.contract.code,
+        },
+        {
+          label: 'Hình thức thanh toán',
+          value: 'null',
+        },
+        {
+          label: 'Ngày tạo',
+          value: this.contract.created,
+        },
+        {
+          label: 'Sản phẩm',
+          value: 'null',
+        },
+        {
+          label: 'Ngày hiệu lực',
+          value: this.contract.effectiveDate,
+        },
+        {
+          label: 'Phí bảo hiểm',
+          value: this.contract.feeAmount,
+        },
+        {
+          label: 'Gói sản phẩm',
+          value: 'null',
+        },
+        {
+          label: 'Ngày hết hạn',
+          value: this.contract.expiredDate,
+        },
+        {
+          label: 'Hoa hồng kênh',
+          value: 'null',
+        },
+        {
+          label: 'Nhà cung cấp',
+          value: this.contract.provider,
+        },
+        {
+          label: 'Chu kỳ',
+          value: 'null',
+        },
+        {
+          label: 'Hoa hồng NVBH',
+          value: 'null',
+        },
+        {
+          label: 'Trang thái',
+          value: this.contract.status,
+        },
+      ];
+      this.dataSeller.list = [
+        {
+          label: 'Mã nhân viên',
+          value: 'null',
+        },
+        {
+          label: 'Số điện thoại',
+          value: 'null',
+        },
+        {
+          label: 'Họ tên',
+          value: 'null',
+        },
+        {
+          label: 'Trạng thái',
+          value: 'null',
+        },
+      ];
+      this.dataCustomer.list = [
+        {
+          label: 'Họ và tên',
+          value: this.contract.insuredFullName,
+        },
+        {
+          label: 'Ngày sinh',
+          value: beneficiary.dob,
+        },
+        {
+          label: 'Giới tính',
+          value: beneficiary.gender,
+        },
+        {
+          label: 'CMT/CCCD',
+          value: beneficiary.idNumber,
+        },
+      ]
     })
   }
 
