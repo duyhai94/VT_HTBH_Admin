@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from '../../../../services/employee.service';
+import { EmployeeModel } from '../../../../models/list/employee.model';
 
 @Component({
   selector: 'app-employee-detail',
@@ -11,68 +14,74 @@ export class EmployeeDetailComponent implements OnInit {
     heigth: '',
     cssClass: 'base-card',
     title: {
-      text: 'Chi tiết hợp đồng -#DV865926',
+      text: '',
       status: '',
     },
-    list: [
-      {
-        label: 'Mã hợp đồng',
-        value: 'DV29648265',
-      },
-      {
-        label: 'Hình thức thanh toán',
-        value: 'Viễn thông',
-      },
-      {
-        label: 'Ngày tạo',
-        value: '10/12/2019-12:00:00',
-      },
-      {
-        label: 'Sản phẩm',
-        value: 'Bảo Tâm An',
-      },
-      {
-        label: 'Ngày hiệu lực',
-        value: '12/12/2019',
-      },
-      {
-        label: 'Phí bảo hiểm',
-        value: '14.000đ',
-      },
-      {
-        label: 'Gói sản phẩm',
-        value: 'Cơ bản',
-      },
-      {
-        label: 'Ngày hêt hạn',
-        value: '12/12/2020',
-      },
-      {
-        label: 'Hoa hồng kênh',
-        value: '1.400đ',
-      },
-      {
-        label: 'Nhà cung cấp',
-        value: 'Bảo hiểm Bảo Long',
-      },
-      {
-        label: 'Chu kỳ',
-        value: 'Tuần',
-      },
-      {
-        label: 'Hoa hồng NVBH',
-        value: '1.000đ',
-      },
-      {
-        label: 'Trang thái',
-        value: 'Hoạt động',
-      },
-    ],
+    list: [],
   };
+  employee: EmployeeModel;
 
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private employeeService: EmployeeService
+  ) { }
 
   ngOnInit(): void {
+    this.getEmployeeDetail();
+  }
+
+  getEmployeeDetail() {
+    let code = this.activatedRoute.snapshot.queryParamMap.get('code');
+    this.employeeService.getEmployeeDetail(code).subscribe(res => {
+      this.employee = res;
+      this.data.title.text = `Chi tiết nhân viên bán hàng - #${this.employee.Code}`
+      this.data.list = [
+        {
+          label: 'Mã nhân viên',
+          value: this.employee.Code,
+        },
+        {
+          label: 'Giới tính',
+          value: this.employee.Gender,
+        },
+        {
+          label: 'CMT/CCCD',
+          value: this.employee.idNumber,
+        },
+        {
+          label: 'Họ và tên',
+          value: this.employee.FullName,
+        },
+        {
+          label: 'Ngày tham gia',
+          value: this.employee.CreatedDate,
+        },
+        {
+          label: 'Ngày cấp',
+          value: '',
+        },
+        {
+          label: 'Điện thoại',
+          value: this.employee.PhoneNumber,
+        },
+        {
+          label: 'Ngày dừng',
+          value: '12/12/2020',
+        },
+        {
+          label: 'Nơi cấp',
+          value: '',
+        },
+        {
+          label: 'Ngày sinh',
+          value: this.employee.BirthDay,
+        },
+        {
+          label: 'Trạng thái',
+          value: this.employee.Status,
+        },
+      ]
+    })
   }
 
 }
