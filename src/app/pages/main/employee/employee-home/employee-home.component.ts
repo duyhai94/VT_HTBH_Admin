@@ -70,7 +70,7 @@ export class EmployeeHomeComponent implements OnInit {
         key: 'Status',
       }
     ],
-
+    tableData: []
   };
   constructor(
     private route: Router,
@@ -95,7 +95,6 @@ export class EmployeeHomeComponent implements OnInit {
   getEmployees(pageIndex, pageSize) {
     this.employeeService.getEmployees(pageIndex, pageSize).subscribe((res) => {
       this.dataTable.tableData = res.reverse();
-      console.log('employee', res);
     });
   }
 }

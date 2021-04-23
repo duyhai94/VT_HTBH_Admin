@@ -23,15 +23,36 @@ export class ContractHomeComponent implements OnInit {
       },
     },
   ];
-  dataTable: Contract = {
+  dataTable: any = {
     tableHeader: [
-      'Mã hợp đồng',
-      'Người bán',
-      'Đối tượng BH',
-      'Sản phẩm',
-      'Ngày tạo',
-      'Ngày hiệu lực',
-      'Trạng thái',
+      {
+        text: 'Mã hợp đồng',
+        key: 'code',
+      },
+      {
+        text: 'Người bán',
+        key: 'sellerName',
+      },
+      {
+        text: 'Đối tượng BH',
+        key: 'insuredFullName',
+      },
+      {
+        text: 'Sản phẩm',
+        key: 'product',
+      },
+      {
+        text: 'Ngày tạo',
+        key: 'created',
+      },
+      {
+        text: 'Ngày hiệu lực',
+        key: 'effectiveDate',
+      },
+      {
+        text: 'Trạng thái',
+        key: 'status',
+      }
     ],
     tableData: [],
   };
@@ -55,8 +76,6 @@ export class ContractHomeComponent implements OnInit {
   getContracts(pageIndex, pageSize) {
     this.contractService.getContracts(pageIndex, pageSize).subscribe(res => {
       this.dataTable.tableData = res.models;
-      console.log('contracts', this.dataTable.tableData);
-
     })
   }
 
