@@ -8,7 +8,7 @@ export interface ContractModel {
     sellerCode?: string;
     id?: string;
     code?: string;
-
+    provider?: string;
     sellerName?: string;
     product?: string;
     created?: string;
@@ -17,5 +17,6 @@ export interface ContractModel {
     feeAmount?: string,
     insuredFullName?: string;
     status?: string;
+    beneficiary?: string;
 }
 

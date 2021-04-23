@@ -23,13 +23,13 @@ export class BaseTableComponent implements OnInit, OnChanges {
 
   currentPage = 1;
 
-  constructor() {}
+  constructor() { }
 
   ngOnChanges() {
-    console.log(this.data.tableHeader);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
   handleEventRoute = (item) => {
     this.callback.emit({
       type: 'route',
@@ -54,4 +54,4 @@ export class BaseTableComponent implements OnInit, OnChanges {
   imports: [CommonModule, NgxPaginationModule],
   exports: [BaseTableComponent],
 })
-export class BaseTableModule {}
+export class BaseTableModule { }
