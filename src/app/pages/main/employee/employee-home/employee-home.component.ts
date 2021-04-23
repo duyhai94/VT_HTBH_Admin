@@ -19,7 +19,7 @@ export interface modelF {
 @Component({
   selector: 'app-employee-home',
   templateUrl: './employee-home.component.html',
-  styleUrls: ['./employee-home.component.scss']
+  styleUrls: ['./employee-home.component.scss'],
 })
 export class EmployeeHomeComponent implements OnInit {
   dataFilterCard = [
@@ -29,18 +29,53 @@ export class EmployeeHomeComponent implements OnInit {
         Phone: 'phone',
         startDate: 'startDate',
         endDate: 'endDate',
-        Status: 'status'
-      }
-    }
-  ]
+        Status: 'status',
+      },
+    },
+  ];
 
-  dataTable: TableModel = {
-    tableHeader: ['ID', 'Họ tên', 'Số điện thoại', 'Ngày sinh', 'Giới tính', 'Ngày tham gia', 'Ngày dừng', 'Trạng thái'],
-    tableData: []
-  }
+  dataTable: any = {
+    tableHeader: [
+      {
+        text: 'ID',
+        key: 'Code',
+      },
+      {
+        text: 'Họ tên',
+        key: 'FullName',
+      },
+      {
+        text: 'Số điện thoại',
+        key: 'PhoneNumber',
+      },
+      {
+        text: 'Ngày sinh',
+        key: 'BirthDay',
+      },
+      {
+        text: 'Giới tính',
+        key: 'Gender',
+      },
+      {
+        text: 'Ngày tham gia',
+        key: 'CreatedDate',
+      },
+      {
+        text: 'Ngày dừng',
+        key: 'CancelDate',
+      },
+     
+      {
+        text: 'Trạng thái',
+        key: 'Status',
+      }      
+    ],
+    tableData: [{}],
+  };
   constructor(
     private route: Router,
-    private employeeService: EmployeeService) { }
+    private employeeService: EmployeeService
+  ) {}
 
   ngOnInit(): void {
     this.getEmployees(1, 5);
@@ -50,16 +85,17 @@ export class EmployeeHomeComponent implements OnInit {
 
     const contractQueryParams = {
       code: item.data.Code,
-    }
-    this.route.navigate(['/employee/detail'], { queryParams: contractQueryParams, queryParamsHandling: 'merge' });
-
+    };
+    this.route.navigate(['/employee/detail'], {
+      queryParams: contractQueryParams,
+      queryParamsHandling: 'merge',
+    });
   };
 
   getEmployees(pageIndex, pageSize) {
-    this.employeeService.getEmployees(pageIndex, pageSize).subscribe(res => {
+    this.employeeService.getEmployees(pageIndex, pageSize).subscribe((res) => {
       this.dataTable.tableData = res.reverse();
       console.log('employee', res);
-
-    })
+    });
   }
 }

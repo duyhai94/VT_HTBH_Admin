@@ -4,6 +4,7 @@ import {
   EventEmitter,
   Input,
   NgModule,
+  OnChanges,
   OnInit,
   Output,
 } from '@angular/core';
@@ -15,16 +16,20 @@ import { TableModel } from 'src/app/models/base/table.model';
   templateUrl: './base-table.component.html',
   styleUrls: ['./base-table.component.scss'],
 })
-export class BaseTableComponent implements OnInit {
+export class BaseTableComponent implements OnInit, OnChanges {
   @Input() tableTitle;
-  @Input() data: TableModel;
+  @Input() data: any;
   @Output() callback = new EventEmitter();
 
   currentPage = 1;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnChanges() {
+    console.log(this.data.tableHeader);
+  }
+
+  ngOnInit(): void {}
   handleEventRoute = (item) => {
     this.callback.emit({
       type: 'route',
@@ -40,9 +45,8 @@ export class BaseTableComponent implements OnInit {
   };
 
   pageChanged(e) {
-    this.currentPage = e
+    this.currentPage = e;
   }
-
 }
 
 @NgModule({
@@ -50,4 +54,4 @@ export class BaseTableComponent implements OnInit {
   imports: [CommonModule, NgxPaginationModule],
   exports: [BaseTableComponent],
 })
-export class BaseTableModule { }
+export class BaseTableModule {}
