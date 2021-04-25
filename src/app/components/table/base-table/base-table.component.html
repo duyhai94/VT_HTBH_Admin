@@ -4,11 +4,13 @@
         <th class="table-header" *ngFor="let item of data.tableHeader">
             {{item?.text}} </th>
     </tr>
-    <tr class="table-content" *ngFor="let item of data.tableData | paginate: { itemsPerPage: 5, currentPage: currentPage }" (click)="handleEventRoute(item)">
+    <tr class="table-content"
+        *ngFor="let item of data.tableData | paginate: { itemsPerPage: 5, currentPage: currentPage, totalItems: totalItems }"
+        (click)="handleEventRoute(item)">
 
-        <td *ngFor="let a of data.tableHeader"> {{item[a.key]}} </td>
+        <td *ngFor="let element of data.tableHeader"> {{item[element.key]}} </td>
     </tr>
 </table>
 <div class="pagination-controls">
-    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls>
 </div>

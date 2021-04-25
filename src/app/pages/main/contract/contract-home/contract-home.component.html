@@ -2,7 +2,7 @@
 
 </app-filter-card>
 <div class="contract-table">
-    <app-base-table [tableTitle]="'Danh sách nhân viên bán hàng'" [data]="dataTable"
-        (callback)="handleEventRouter($event)"></app-base-table>
+    <app-base-table [totalItems]="totalItems" [tableTitle]="'Danh sách nhân viên bán hàng'" [data]="dataTable"
+        (event1)="handleEventRoute($event)" (event2)="handlePageChange($event)"></app-base-table>
 
 </div>

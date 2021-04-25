@@ -57,17 +57,18 @@ export class ContractHomeComponent implements OnInit {
     tableData: [],
   };
 
+  totalItems: number;
+
   constructor(private route: Router, private contractService: ContractService) { }
 
   ngOnInit(): void {
     this.getContracts(1, 5);
   }
 
-  handleEventRouter = (item) => {
-    console.log(item);
+  handleEventRoute(event) {
     const contractQueryParams = {
-      id: item.data.id,
-      sellerCode: item.data.sellerCode
+      id: event.data.id,
+      sellerCode: event.data.sellerCode
     }
     this.route.navigate(['/contract/detail'], { queryParams: contractQueryParams, queryParamsHandling: 'merge' });
   };
@@ -76,17 +77,12 @@ export class ContractHomeComponent implements OnInit {
   getContracts(pageIndex, pageSize) {
     this.contractService.getContracts(pageIndex, pageSize).subscribe(res => {
       this.dataTable.tableData = res.models;
+      this.totalItems = res.total;
     })
   }
 
-  getNextData(currentSize, pageIndex, pageSize) {
-    this.contractService.getContracts(pageIndex, pageSize).subscribe(res => {
-      let contracts = res.models;
-      this.dataTable.tableData.length = currentSize;
-      this.dataTable.tableData.push(...contracts);
-      this.dataTable.tableData.length = res.total;
-
-    })
+  handlePageChange(event) {
+    this.getContracts(event.data, 5);
   }
 
 
