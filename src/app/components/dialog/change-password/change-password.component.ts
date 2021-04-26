@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ChangeModel } from 'src/app/models/auth/change.model';
 import { AuthenticationService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/localstorage.service';
 import { BaseButtonModule } from '../../button/base-button/base-button.component';
 
 @Component({
@@ -20,6 +22,9 @@ export class ChangePasswordComponent implements OnInit {
   }
   )
 
+  err: any;
+  success: any;
+
 
   // dataBtnSC = {
   //   cssClass: 'btn-sc',
@@ -31,7 +36,9 @@ export class ChangePasswordComponent implements OnInit {
 
   constructor(
     public dialoRef: MatDialogRef<ChangePasswordComponent>,
-    private authenService: AuthenticationService
+    private authenService: AuthenticationService,
+    public router: Router,
+    private local: LocalStorageService
   ) {}
 
   ngOnInit() {
@@ -40,17 +47,23 @@ export class ChangePasswordComponent implements OnInit {
     this.dialoRef.close();
   }
   change() {
-    this.authenService.create(this.form.value).subscribe(
-      (res) => {
-        console.log(res);
+    this.authenService.changePassword(this.form.value).subscribe(
+      (res:any) => {
+        this.success = res.message + "Bạn cần đăng nhập lại";
       },
-      (err) => {
-        console.log(err);
+      (error) => {
+        console.log(error.error.message)
+        this.err = error.error.message
       }
-    );
+    );  
   }
 
-  submit() {}
+  confirm() {
+    this.local.clear();
+    this.close();
+    this.router.navigate([''])
+    
+  }
 }
 @NgModule({
   declarations: [ChangePasswordComponent],
