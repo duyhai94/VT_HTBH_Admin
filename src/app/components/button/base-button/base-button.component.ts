@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class BaseButtonComponent implements OnInit {
   @Input() titleButton;
   @Input() dataButton: any;
-  @Output() onSubmit = new EventEmitter();
+  @Output() callback = new EventEmitter();
 
   constructor() { }
 

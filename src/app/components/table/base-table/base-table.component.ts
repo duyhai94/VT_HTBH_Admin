@@ -7,6 +7,7 @@ import {
   OnChanges,
   OnInit,
   Output,
+  SimpleChanges,
 } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TableModel } from 'src/app/models/base/table.model';
@@ -19,19 +20,27 @@ import { TableModel } from 'src/app/models/base/table.model';
 export class BaseTableComponent implements OnInit, OnChanges {
   @Input() tableTitle;
   @Input() data: any;
+  @Input() totalItems: any;
   @Output() callback = new EventEmitter();
+  @Output() event1 = new EventEmitter();
+  @Output() event2 = new EventEmitter();
 
   currentPage = 1;
 
   constructor() { }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
+    this.totalItems = changes.totalItems.currentValue;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+  }
+
+
 
   handleEventRoute = (item) => {
-    this.callback.emit({
+    this.event1.emit({
       type: 'route',
       data: item,
     });
@@ -44,8 +53,12 @@ export class BaseTableComponent implements OnInit, OnChanges {
     });
   };
 
-  pageChanged(e) {
+  handlePageChange(e) {
     this.currentPage = e;
+    this.event2.emit({
+      type: 'next',
+      data: e
+    })
   }
 }
 

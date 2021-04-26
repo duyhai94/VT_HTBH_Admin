@@ -72,6 +72,9 @@ export class EmployeeHomeComponent implements OnInit {
     ],
     tableData: []
   };
+
+  totalItems: number;
+
   constructor(
     private route: Router,
     private employeeService: EmployeeService
@@ -80,11 +83,10 @@ export class EmployeeHomeComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployees(1, 5);
   }
-  handleEventRouter = (item) => {
-    console.log(item);
 
+  handleEventRoute(event) {
     const contractQueryParams = {
-      code: item.data.Code,
+      code: event.data.Code,
     };
     this.route.navigate(['/employee/detail'], {
       queryParams: contractQueryParams,
@@ -97,4 +99,10 @@ export class EmployeeHomeComponent implements OnInit {
       this.dataTable.tableData = res.reverse();
     });
   }
+
+  handlePageChange(event) {
+    this.getEmployees(event.data, 5);
+  }
+
+
 }
