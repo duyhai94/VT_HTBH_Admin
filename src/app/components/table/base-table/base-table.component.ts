@@ -9,7 +9,9 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { map } from 'rxjs/operators';
 import { TableModel } from 'src/app/models/base/table.model';
 
 @Component({
@@ -25,18 +27,19 @@ export class BaseTableComponent implements OnInit, OnChanges {
   @Output() event1 = new EventEmitter();
   @Output() event2 = new EventEmitter();
 
-  currentPage = 1;
+  currentPage: number;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private route: Router) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes', changes);
-
     this.totalItems = changes.totalItems.currentValue;
   }
 
   ngOnInit(): void {
-
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.currentPage = params['page_index'];
+    });
   }
 
 
@@ -61,6 +64,10 @@ export class BaseTableComponent implements OnInit, OnChanges {
       type: 'next',
       data: e
     })
+    const paginationQueryParams = {
+      page_index: e,
+    };
+    this.route.navigate([], { queryParams: paginationQueryParams, queryParamsHandling: 'merge' });
   }
 }
 
