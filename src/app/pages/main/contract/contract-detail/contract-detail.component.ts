@@ -58,9 +58,11 @@ export class ContractDetailComponent implements OnInit {
   getContractDetail() {
     let id = this.activatedRoute.snapshot.queryParamMap.get('id');
     let sellerCode = this.activatedRoute.snapshot.queryParamMap.get('sellerCode');
+
+
     this.contractService.getContractDetail(id, sellerCode).subscribe(res => {
       this.contract = res;
-      let beneficiary = JSON.parse(this.contract.beneficiary).insureds[0];
+      let beneficiary = JSON.parse(this.contract.jsonAttribute).insureds[0];
       this.dataContract.title.text = `Chi tiết hợp đồng - #${this.contract.code}`
       this.dataContract.list = [
         {

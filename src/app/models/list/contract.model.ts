@@ -39,5 +39,6 @@ export interface ContractModel {
         CancelDate: string,
         Status: string
     }
+    jsonAttribute: string;
 }
 
