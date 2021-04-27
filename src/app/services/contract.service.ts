@@ -12,12 +12,12 @@ export class ContractService extends BaseApiService<any> {
     super(http, 'api/SalesManager/Admin/ListPolicy');
   }
 
-  getContracts(pageindex, pagesize): Observable<any> {
-    return this.http.get<any>(`api/SalesManager/Admin/ListPolicy?pageindex=${pageindex}&pagesize=${pagesize}`).pipe(map((res: any) => res.data));
+  getContracts(pageIndex, pageSize): Observable<any> {
+    return this.http.get<any>(`api/SalesManager/Admin/ListPolicy?pageindex=${pageIndex}&pagesize=${pageSize}`).pipe(map((res: any) => res.data));
   }
 
-  getContractDetail(id, SellerCode): Observable<any> {
-    return this.http.get<any>(`api/SalesManager/Admin/Policy?id=${id}&SellerCode=${SellerCode}`).pipe(map((res: any) => res.data));
+  getContractDetail(id, sellerCode): Observable<any> {
+    return this.http.get<any>(`api/SalesManager/Admin/Policy?id=${id}&SellerCode=${sellerCode}`).pipe(map((res: any) => res.data));
   }
 
 }

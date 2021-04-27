@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { Contract } from '../../../../models/list/list-contract.model';
+import { Contract } from '../../../../models/list/contract.model';
 import { ContractService } from 'src/app/services/contract.service';
 
 @Component({
@@ -66,9 +66,11 @@ export class ContractHomeComponent implements OnInit {
   }
 
   handleEventRoute(event) {
+    console.log(event);
+
     const contractQueryParams = {
       id: event.data.id,
-      sellerCode: event.data.sellerCode
+      sellerCode: event.data.seller.Code
     }
     this.route.navigate(['/contract/detail'], { queryParams: contractQueryParams, queryParamsHandling: 'merge' });
   };
@@ -82,7 +84,11 @@ export class ContractHomeComponent implements OnInit {
   }
 
   handlePageChange(event) {
-    this.getContracts(event.data, 5);
+    this.getContracts(event.data, 1);
+    const paginationQueryParams = {
+      page_index: event.data,
+    };
+    this.route.navigate([], { queryParams: paginationQueryParams, queryParamsHandling: 'merge' });
   }
 
 

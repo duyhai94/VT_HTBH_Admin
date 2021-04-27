@@ -15,4 +15,6 @@ export interface EmployeeModel {
     Status: string;
     idNumber: string;
     Gender: string;
+    idIssueDate: string;
+    idIssuePlace: string;
 }
