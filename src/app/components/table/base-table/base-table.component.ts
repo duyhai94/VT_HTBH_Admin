@@ -30,6 +30,8 @@ export class BaseTableComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('changes', changes);
+
     this.totalItems = changes.totalItems.currentValue;
   }
 

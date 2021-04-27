@@ -12,8 +12,8 @@ export class EmployeeService extends BaseApiService<any> {
         super(http, '');
     }
 
-    getEmployees(pageindex, pagesize): Observable<any> {
-        return this.http.get<any>(`api/SalesManager/Admin/ListSeller?pageIndex=${pageindex}&pagesize=${pagesize}&Search=&Code=&FromDate=&ToDate=`).pipe(map((res: any) => res.data));
+    getEmployees(pageIndex, pagesSize): Observable<any> {
+        return this.http.get<any>(`api/SalesManager/Admin/ListSeller?pageIndex=${pageIndex}&pagesize=${pagesSize}&Search=&Code=&FromDate=&ToDate=`).pipe(map((res: any) => res.data));
     }
 
     getEmployeeDetail(code): Observable<any> {

@@ -58,7 +58,7 @@ export class EmployeeDetailComponent implements OnInit {
         },
         {
           label: 'Ngày cấp',
-          value: '',
+          value: this.employee.idIssueDate,
         },
         {
           label: 'Điện thoại',
@@ -70,7 +70,7 @@ export class EmployeeDetailComponent implements OnInit {
         },
         {
           label: 'Nơi cấp',
-          value: '',
+          value: this.employee.idIssuePlace,
         },
         {
           label: 'Ngày sinh',

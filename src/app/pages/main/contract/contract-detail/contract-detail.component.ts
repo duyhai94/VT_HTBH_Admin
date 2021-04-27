@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { ContractModel } from 'src/app/models/list/list-contract.model';
+import { ContractModel } from 'src/app/models/list/contract.model';
 import { ContractService } from '../../../../services/contract.service';
 
 @Component({
@@ -69,7 +69,7 @@ export class ContractDetailComponent implements OnInit {
         },
         {
           label: 'Hình thức thanh toán',
-          value: 'null',
+          value: this.contract.purchaseMethod,
         },
         {
           label: 'Ngày tạo',
@@ -77,7 +77,7 @@ export class ContractDetailComponent implements OnInit {
         },
         {
           label: 'Sản phẩm',
-          value: 'null',
+          value: this.contract.product,
         },
         {
           label: 'Ngày hiệu lực',
@@ -89,7 +89,7 @@ export class ContractDetailComponent implements OnInit {
         },
         {
           label: 'Gói sản phẩm',
-          value: 'null',
+          value: this.contract.productPackDetail.productPack.name,
         },
         {
           label: 'Ngày hết hạn',
@@ -105,7 +105,7 @@ export class ContractDetailComponent implements OnInit {
         },
         {
           label: 'Chu kỳ',
-          value: 'null',
+          value: this.contract.productPackDetail.type,
         },
         {
           label: 'Hoa hồng NVBH',
@@ -119,19 +119,19 @@ export class ContractDetailComponent implements OnInit {
       this.dataSeller.list = [
         {
           label: 'Mã nhân viên',
-          value: 'null',
+          value: this.contract.seller.Code,
         },
         {
           label: 'Số điện thoại',
-          value: 'null',
+          value: this.contract.seller.PhoneNumber,
         },
         {
           label: 'Họ tên',
-          value: 'null',
+          value: this.contract.seller.FullName,
         },
         {
           label: 'Trạng thái',
-          value: 'null',
+          value: this.contract.seller.Status,
         },
       ];
       this.dataCustomer.list = [
