@@ -85,10 +85,6 @@ export class ContractHomeComponent implements OnInit {
 
   handlePageChange(event) {
     this.getContracts(event.data, 1);
-    const paginationQueryParams = {
-      page_index: event.data,
-    };
-    this.route.navigate([], { queryParams: paginationQueryParams, queryParamsHandling: 'merge' });
   }
 
 
