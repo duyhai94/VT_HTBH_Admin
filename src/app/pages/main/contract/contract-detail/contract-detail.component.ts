@@ -19,9 +19,7 @@ export class ContractDetailComponent implements OnInit {
       text: '',
       status: '',
     },
-    list: [
-
-    ],
+    list: [],
   };
 
 

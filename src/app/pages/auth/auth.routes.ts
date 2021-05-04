@@ -3,6 +3,7 @@ import { AppGuard } from 'src/app/utils/guards/app.guard';
 import { AuthComponent } from './auth.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { LoginComponent } from './login/login.component';
+import { OtpComponent } from './otp/otp.component';
 
 export const authRoutes: Routes = [
   {
@@ -16,6 +17,10 @@ export const authRoutes: Routes = [
       {
         path:'forgot',
         component:ForgotComponent
+      },
+      {
+        path: "otp",
+        component: OtpComponent
       },
       {
         path: '',

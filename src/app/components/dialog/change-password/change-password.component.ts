@@ -52,7 +52,6 @@ export class ChangePasswordComponent implements OnInit {
         this.success = res.message + "Bạn cần đăng nhập lại";
       },
       (error) => {
-        console.log(error.error.message)
         this.err = error.error.message
       }
     );  

@@ -8,15 +8,16 @@ import { authRoutes } from './auth.routes';
 import {  LoginFormMudule } from './components/login-form/login-form.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotComponent } from './forgot/forgot.component';
+import { OtpComponent } from './otp/otp.component';
 
 @NgModule({
-  declarations: [AuthComponent,LoginComponent, ForgotComponent,  ],
+  declarations: [AuthComponent,LoginComponent,ForgotComponent, OtpComponent   ],
   imports: [
     CommonModule,
     RouterModule.forChild(authRoutes),
     LayoutModule,
-    // FormsModule,
-    // ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     LoginFormMudule
     
 

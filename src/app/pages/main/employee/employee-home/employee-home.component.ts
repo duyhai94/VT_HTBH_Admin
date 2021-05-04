@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TableModel } from 'src/app/models/base/table.model';
 import { EmployeeService } from '../../../../services/employee.service';
 export interface modelF {
   width: string;

@@ -7,12 +7,10 @@ import {
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { map } from 'rxjs/operators';
-import { TableModel } from 'src/app/models/base/table.model';
 
 @Component({
   selector: 'app-base-table',
