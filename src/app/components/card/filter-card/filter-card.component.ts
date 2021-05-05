@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, NgModule, OnInit, Output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -9,11 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class FilterCardComponent implements OnInit {
 @Input() listFilter;
+@Input() filterConfig;
+@Input() filterModel;
+@Output() callBack = new EventEmitter();
   constructor() { }
-
   ngOnInit(): void {
+    console.log(this.filterModel, 1);
   }
-
+  onSearchClick() {
+    console.log(this.filterModel);
+    this.callBack.emit(this.filterModel);
+  }
 }
 
 @NgModule ({

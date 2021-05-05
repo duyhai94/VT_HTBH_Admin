@@ -1,9 +1,11 @@
 <form class="filter-card">
-    <div class="filter-card-title">
-        Tìm kiếm theo
-    </div>
-    <div class="filter-card-data" *ngFor="let item of listFilter">
-        <div class="list-data" *ngIf="item.type.Id== 'id'">
+  <div class="filter-card-title">
+    Tìm kiếm theo
+    <!-- {{filterConfig | json}} -->
+  </div>
+
+  <div class="filter-card-data">
+    <!-- <div class="list-data" *ngIf="item.type.Id== 'id'">
             <div class="label"> ID</div>
             <input type="text" class="input" placeholder="Nhập ID">
         </div>
@@ -53,7 +55,34 @@
             <button class="search">
                 Tìm kiếm
             </button>
-        </div>
-
+        </div> -->
+    <div class="list-data" *ngFor="let item of filterConfig">
+      <div *ngIf="item.type == 'text'">
+        <div class="label">{{ item.label }}</div>
+        <input
+          [type]="item.type"
+          class="input"
+          [placeholder]="item.placeholder"
+          [(ngModel)]="filterModel[item.condition]"
+          [name]="item.label"
+        />
+      </div>
+      <div *ngIf="item.type == 'select'">
+        <div class="label">{{ item.label }}</div>
+        <select
+          class="base-input"
+          [(ngModel)]="filterModel[item.condition]"
+          [name]="item.label"
+        >
+          <option *ngFor="let i of item.data" [value]="i">
+            {{ i }}
+          </option>
+        </select>
+      </div>
     </div>
+    <div class="list-data">
+      <div class="label"></div>
+      <button class="search" (click)="onSearchClick()">Tìm kiếm</button>
+    </div>
+  </div>
 </form>

@@ -1,4 +1,4 @@
-<app-filter-card [listFilter]="dataFilterCard">
+<app-filter-card [listFilter]="dataFilterCard" [filterConfig]="filterConfig" [filterModel]="filterModel" (callBack)="search($event)">
 
 </app-filter-card>
 <div class="employee-table">
