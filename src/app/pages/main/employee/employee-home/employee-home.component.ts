@@ -129,7 +129,7 @@ export class EmployeeHomeComponent implements OnInit {
     for (let i = 0; i < this.filterConfig.length; i++) {
       if (ev[this.filterConfig[i].condition] != '') {
         if (checkLastFilter == false) {
-          if (this.filterConfig[i].type === 'text') {
+          if (this.filterConfig[i].type === 'text') {            
             this.dataTable.tableData = this.dataFilter.filter(
               (a) =>
                 a[this.filterConfig[i].condition]
@@ -166,7 +166,7 @@ export class EmployeeHomeComponent implements OnInit {
           }
         }
       } else {
-        if(i==this.filterConfig.length-1) {
+        if(i==this.filterConfig.length-1 && checkLastFilter == false) {
           this.dataTable.tableData = this.dataFilter;
         }
       }
